@@ -1,0 +1,2878 @@
+format: ChoreonoidBody
+format_version: 2.0
+angle_unit: degree
+name: "fourlegs_griphis"
+root_link: "base_link"
+links:
+  -
+    name: "base_link"
+    joint_name: "base_link"
+    joint_type: free
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1, 0, 0,
+      0, 1, 0,
+      0, 0, 1 ]
+  -
+    name: "griphis_0_gripper-cp1"
+    parent: "base_link"
+    translation: [ 0, 0, 0.4 ]
+    rotation: [ 1, 0, 0, 89.9544 ]
+    joint_name: "griphis_0_gripper-cp1_to_base_link_joint"
+    joint_type: fixed
+    mass: 0.0105278
+    center_of_mass: [ -0.000249015, -0.00102239, -0.0133818 ]
+    inertia: [
+      2.49427e-06, -4.5301e-08, 6.75737e-08,
+      -4.5301e-08, 2.7004e-06, -2.88247e-07,
+      6.75737e-08, -2.88247e-07, 2.67368e-06 ]
+    elements:
+      - &A0
+        type: Shape
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/gripper-cp1.STL"
+  -
+    name: "griphis_0_roll_1_link"
+    parent: "griphis_0_gripper-cp1"
+    joint_name: "griphis_0_gripper-cp1"
+    joint_type: fixed
+    mass: 0.0617239
+    center_of_mass: [ 0.0304848, -0.000533684, -0.000138764 ]
+    inertia: [
+      1.72113e-05, -2.34655e-07, 1.72187e-07,
+      -2.34655e-07, 1.09105e-05, 3.906e-08,
+      1.72187e-07, 3.906e-08, 1.62403e-05 ]
+    elements:
+      -
+        type: Transform
+        rotation: [ -0.57735026919, -0.57735026919, -0.57735026919, 120 ]
+        translation: [ -0.000318198051527, 0.000318198051528, -0.0767 ]
+        elements:
+          - &A1
+            type: Shape
+            geometry:
+              type: Resource
+              uri: "griphis_xacro_stl/meshes/roll_1_link.STL"
+  -
+    name: "griphis_0_yaw_1_link"
+    parent: "griphis_0_roll_1_link"
+    translation: [ -0.000318198, 0.000318198, -0.0767 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_0_roll_1"
+    joint_type: revolute
+    joint_axis: [ 1, -0, -0 ]
+    joint_id: 3
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0544536
+    center_of_mass: [ 0.00934924, -1.17001e-10, -0.0065657 ]
+    inertia: [
+      6.16082e-06, -1.48643e-08, 3.66332e-08,
+      -1.48643e-08, 7.36783e-06, -1.48634e-08,
+      3.66332e-08, -1.48634e-08, 7.24406e-06 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.028, -0, 0.0175 ]
+        elements:
+          - &A2
+            type: Shape
+            appearance:
+              material:
+                diffuse: [ 0.180392, 0.180392, 0.180392 ]
+            geometry:
+              type: Resource
+              uri: "griphis_xacro_stl/meshes/yaw_1_link.STL"
+  -
+    name: "griphis_0_pitch_1_link"
+    parent: "griphis_0_yaw_1_link"
+    translation: [ -0.028, -0, 0.0175 ]
+    joint_name: "griphis_0_yaw_1"
+    joint_type: revolute
+    joint_axis: [ -0, -0, 1 ]
+    joint_id: 2
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0105178
+    center_of_mass: [ 0.0191893, -0.0172316, -0.00342857 ]
+    inertia: [
+      5.84801e-07, 3.57322e-09, 8.81524e-08,
+      3.57322e-09, 1.04603e-06, -1.51991e-13,
+      8.81524e-08, -1.51991e-13, 9.82965e-07 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.042, 0.0175, -0.0175 ]
+        elements:
+          - &A3
+            type: Shape
+            appearance:
+              material:
+                diffuse: [ 0.298039, 0.298039, 0.298039 ]
+            geometry:
+              type: Resource
+              uri: "griphis_xacro_stl/meshes/pitch_1_link.STL"
+  -
+    name: "griphis_0_mid_pitch_1_link"
+    parent: "griphis_0_pitch_1_link"
+    translation: [ -0.042, 0.0175, -0.0175 ]
+    joint_name: "griphis_0_pitch_1"
+    joint_type: revolute
+    joint_axis: [ -0, -1, -0 ]
+    joint_id: 1
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0769353
+    center_of_mass: [ 0.0327517, 0.0322634, 0.000309411 ]
+    inertia: [
+      1.72123e-05, 1.01497e-08, -9.64331e-08,
+      1.01497e-08, 1.36641e-05, 5.60815e-07,
+      -9.64331e-08, 5.60815e-07, 1.63212e-05 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.064, -0.0351, -0 ]
+        elements:
+          - &A4
+            type: Shape
+            appearance:
+              material:
+                diffuse: [ 0.752941, 0.752941, 0.752941 ]
+            geometry:
+              type: Resource
+              uri: "griphis_xacro_stl/meshes/mid_pitch_1_link.STL"
+  -
+    name: "griphis_0_base_link"
+    parent: "griphis_0_mid_pitch_1_link"
+    translation: [ -0.064, -0.0351, -0 ]
+    joint_name: "griphis_0_mid_pitch_1"
+    joint_type: revolute
+    joint_axis: [ -0, -1, -0 ]
+    joint_id: 0
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0797463
+    center_of_mass: [ -0.000102643, 3.31727e-05, -0.00495518 ]
+    inertia: [
+      8.57012e-06, 1.08293e-08, -5.94276e-09,
+      1.08293e-08, 1.05159e-05, 1.10583e-08,
+      -5.94276e-09, 1.10583e-08, 1.0887e-05 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.0149, 0.0176, 0.011 ]
+        elements:
+          - &A5
+            type: Shape
+            appearance:
+              material:
+                diffuse: [ 0.752941, 0.752941, 0.752941 ]
+            geometry:
+              type: Resource
+              uri: "griphis_xacro_stl/meshes/base_link.STL"
+  -
+    name: "griphis_0_mid_pitch_2_link"
+    parent: "griphis_0_base_link"
+    translation: [ -0.0299, 0.0352, 0.00021 ]
+    joint_name: "griphis_0_mid_pitch_2"
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 9
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0769502
+    center_of_mass: [ -0.0327474, -0.0322606, 0.000309352 ]
+    inertia: [
+      1.72131e-05, 1.01486e-08, 9.64339e-08,
+      1.01486e-08, 1.36643e-05, -5.60813e-07,
+      9.64339e-08, -5.60813e-07, 1.63207e-05 ]
+    elements:
+      - &A6
+        type: Shape
+        appearance:
+          material:
+            diffuse: [ 0.752941, 0.752941, 0.752941 ]
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/mid_pitch_2_link.STL"
+  -
+    name: "griphis_0_pitch_2_link"
+    parent: "griphis_0_mid_pitch_2_link"
+    translation: [ -0.064, -0.0351, 0 ]
+    joint_name: "griphis_0_pitch_2"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 10
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0105178
+    center_of_mass: [ -0.0191893, 0.0172316, -0.00342857 ]
+    inertia: [
+      5.84801e-07, 3.57322e-09, -8.81524e-08,
+      3.57322e-09, 1.04603e-06, 1.51991e-13,
+      -8.81524e-08, 1.51991e-13, 9.82965e-07 ]
+    elements:
+      - &A7
+        type: Shape
+        appearance:
+          material:
+            diffuse: [ 0.298039, 0.298039, 0.298039 ]
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/pitch_2_link.STL"
+  -
+    name: "griphis_0_yaw_2_link"
+    parent: "griphis_0_pitch_2_link"
+    translation: [ -0.042, 0.0175, 0.0175 ]
+    joint_name: "griphis_0_yaw_2"
+    joint_type: revolute
+    joint_axis: [ 0, 0, -1 ]
+    joint_id: 11
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0544537
+    center_of_mass: [ -0.00934924, -1.20739e-09, -0.0065657 ]
+    inertia: [
+      6.16083e-06, -1.48631e-08, -3.66334e-08,
+      -1.48631e-08, 7.36783e-06, 1.48635e-08,
+      -3.66334e-08, 1.48635e-08, 7.24407e-06 ]
+    elements:
+      - &A8
+        type: Shape
+        appearance:
+          material:
+            diffuse: [ 0.180392, 0.180392, 0.180392 ]
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/yaw_2_link.STL"
+  -
+    name: "griphis_0_roll_2_link"
+    parent: "griphis_0_yaw_2_link"
+    translation: [ -0.028, 0, -0.0175 ]
+    joint_name: "griphis_0_roll_2"
+    joint_type: revolute
+    joint_axis: [ -1, 0, 0 ]
+    joint_id: 12
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0617239
+    center_of_mass: [ -0.0304848, 0.000533684, -0.000138764 ]
+    inertia: [
+      1.72113e-05, -2.34655e-07, -1.72187e-07,
+      -2.34655e-07, 1.09105e-05, -3.906e-08,
+      -1.72187e-07, -3.906e-08, 1.62403e-05 ]
+    elements:
+      - &A9
+        type: Shape
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/roll_2_link.STL"
+  -
+    name: "griphis_0_worm_2_link"
+    parent: "griphis_0_roll_2_link"
+    translation: [ -0.047, 0, 0 ]
+    joint_name: "griphis_0_worm_rotate_2"
+    joint_type: fixed
+    joint_axis: [ 0.737217, 0, 0.675656 ]
+    joint_id: 13
+    max_joint_velocity: 572.958
+    max_joint_effort: 15
+    mass: 0.00387258
+    center_of_mass: [ -0.0068039, 5.66708e-05, 3.76181e-06 ]
+    inertia: [
+      2.06265e-07, 6.32002e-10, -1.2591e-09,
+      6.32002e-10, 1.71306e-07, 1.39153e-11,
+      -1.2591e-09, 1.39153e-11, 1.71128e-07 ]
+    elements:
+      - &A10
+        type: Shape
+        appearance:
+          material:
+            diffuse: [ 0.752941, 0.752941, 0.752941 ]
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/worm_2_link.STL"
+  -
+    name: "griphis_0_nail1_2_link"
+    parent: "griphis_0_roll_2_link"
+    translation: [ -0.057, 0, -0.015 ]
+    joint_name: "griphis_0_nail1_rotate_2"
+    joint_type: revolute
+    joint_angle: 90                
+    joint_axis: [ 0, -1, 0 ]
+    joint_range: [90, 90]
+    joint_id: 14
+    mass: 0.00785452
+    center_of_mass: [ -0.0375116, 0.000154762, -0.000927613 ]
+    inertia: [
+      3.26793e-07, -2.23312e-10, 3.04392e-07,
+      -2.23312e-10, 1.76175e-06, 8.72037e-12,
+      3.04392e-07, 8.72037e-12, 1.60468e-06 ]
+    elements:
+      - &A11
+        type: Shape
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/nail1_2_link.STL"
+  -
+    name: "griphis_0_nail2_2_link"
+    parent: "griphis_0_roll_2_link"
+    translation: [ -0.057, 0.015, 0 ]
+    joint_name: "griphis_0_nail2_rotate_2"
+    joint_type: revolute
+    joint_axis: [ 0, 0, -1 ]
+    joint_angle: 90            
+    joint_range: [90, 90]    
+    joint_id: 15
+    mass: 0.00783921
+    center_of_mass: [ -0.0375922, 0.000920668, 0.000149875 ]
+    inertia: [
+      3.26764e-07, -3.04084e-07, -3.01596e-10,
+      -3.04084e-07, 1.60307e-06, 3.50229e-11,
+      -3.01596e-10, 3.50229e-11, 1.76008e-06 ]
+    elements:
+      - &A12
+        type: Shape
+        appearance:
+          material:
+            diffuse: [ 0.752941, 0.752941, 0.752941 ]
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/nail2_2_link.STL"
+  -
+    name: "griphis_0_nail3_2_link"
+    parent: "griphis_0_roll_2_link"
+    translation: [ -0.057, 0, 0.015 ]
+    joint_name: "griphis_0_nail3_rotate_2"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_angle: 90            
+    joint_range: [90, 90]    
+    joint_id: 16
+    mass: 0.00782164
+    center_of_mass: [ -0.0376634, 4.5024e-05, 0.000912382 ]
+    inertia: [
+      3.26388e-07, 1.94469e-10, -3.03929e-07,
+      1.94469e-10, 1.7564e-06, 1.77167e-11,
+      -3.03929e-07, 1.77167e-11, 1.59917e-06 ]
+    elements:
+      - &A13
+        type: Shape
+        appearance:
+          material:
+            diffuse: [ 0.752941, 0.752941, 0.752941 ]
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/nail3_2_link.STL"
+  -
+    name: "griphis_0_nail4_2_link"
+    parent: "griphis_0_roll_2_link"
+    translation: [ -0.057, -0.015, 0 ]
+    joint_name: "griphis_0_nail4_rotate_2"
+    joint_type: revolute
+    joint_axis: [ 0, 0, 1 ]
+    joint_angle: 90            
+    joint_range: [90, 90]    
+    joint_id: 17
+    mass: 0.0078313
+    center_of_mass: [ -0.0376199, -0.000916238, -0.000157293 ]
+    inertia: [
+      3.26491e-07, 3.03989e-07, 4.37078e-10,
+      3.03989e-07, 1.60061e-06, -2.94387e-11,
+      4.37078e-10, -2.94387e-11, 1.75778e-06 ]
+    elements:
+      - &A14
+        type: Shape
+        appearance:
+          material:
+            diffuse: [ 0.752941, 0.752941, 0.752941 ]
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/nail4_2_link.STL"
+  -
+    name: "griphis_0_nail-cp2"
+    parent: "griphis_0_roll_2_link"
+    translation: [ -0.1417, -0.000318198, -0.000318198 ]
+    rotation: [ -0.57735, -0.57735, 0.57735, 120 ]
+    joint_name: "griphis_0_nail-cp2"
+    joint_type: fixed
+    mass: 0.00115854
+    center_of_mass: [ 0.000615813, -0.000615813, -0.0658092 ]
+    inertia: [
+      1.05682e-07, -1.57646e-09, -7.53304e-11,
+      -1.57646e-09, 1.05682e-07, 7.53304e-11,
+      -7.53304e-11, 7.53304e-11, 2.10813e-07 ]
+    elements:
+      - &A15
+        type: Shape
+        appearance:
+          material:
+            diffuse: [ 0.796078, 0.823529, 0.937255 ]
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/nail-cp2.STL"
+  -
+    name: "griphis_0_gripper-cp2"
+    parent: "griphis_0_roll_2_link"
+    translation: [ -0.0767, -0.000318198, -0.000318198 ]
+    rotation: [ -0.57735, 0.57735, -0.57735, 120 ]
+    joint_name: "griphis_0_gripper-cp2"
+    joint_type: fixed
+    mass: 0.0105278
+    center_of_mass: [ 0.000249015, -0.00102239, 0.0133818 ]
+    inertia: [
+      2.49427e-06, 4.5301e-08, 6.75737e-08,
+      4.5301e-08, 2.7004e-06, 2.88247e-07,
+      6.75737e-08, 2.88247e-07, 2.67368e-06 ]
+    elements:
+      - &A16
+        type: Shape
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/gripper-cp2.STL"
+  -
+    name: "griphis_0_nailring2-cp1"
+    parent: "griphis_0_roll_2_link"
+    translation: [ -0.0285999, 0, 0.033 ]
+    rotation: [ 1.32557e-07, -1, -6.72257e-15, 180 ]
+    joint_name: "griphis_0_nailring2-cp1"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, 9.14134e-10,
+      4.0832e-11, 1.88948e-06, -1.81576e-12,
+      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
+    elements:
+      - &A17
+        type: Shape
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/nailring2-cp1.STL"
+  -
+    name: "griphis_0_nailring2-cp2"
+    parent: "griphis_0_roll_2_link"
+    translation: [ -0.0285999, -0.033, 0 ]
+    rotation: [ 1.14236e-15, 0.707107, 0.707107, 180 ]
+    joint_name: "griphis_0_nailring2-cp2"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, 9.14134e-10,
+      4.0832e-11, 1.88948e-06, -1.81576e-12,
+      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
+    elements:
+      - &A18
+        type: Shape
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/nailring2-cp2.STL"
+  -
+    name: "griphis_3_gripper-cp1"
+    parent: "griphis_0_nailring2-cp2"
+    translation: [ 0, 0, -0.07 ]
+    joint_name: "griphis_3_gripper-cp1_to_griphis_0_nailring2-cp2_joint"
+    joint_type: fixed
+    mass: 0.0105278
+    center_of_mass: [ -0.000249015, -0.00102239, -0.0133818 ]
+    inertia: [
+      2.49427e-06, -4.5301e-08, 6.75737e-08,
+      -4.5301e-08, 2.7004e-06, -2.88247e-07,
+      6.75737e-08, -2.88247e-07, 2.67368e-06 ]
+    elements:
+      - *A0
+  -
+    name: "griphis_3_roll_1_link"
+    parent: "griphis_3_gripper-cp1"
+    joint_name: "griphis_3_gripper-cp1"
+    joint_type: fixed
+    mass: 0.0617239
+    center_of_mass: [ 0.0304848, -0.000533684, -0.000138764 ]
+    inertia: [
+      1.72113e-05, -2.34655e-07, 1.72187e-07,
+      -2.34655e-07, 1.09105e-05, 3.906e-08,
+      1.72187e-07, 3.906e-08, 1.62403e-05 ]
+    elements:
+      -
+        type: Transform
+        rotation: [ -0.57735026919, -0.57735026919, -0.57735026919, 120 ]
+        translation: [ -0.000318198051527, 0.000318198051528, -0.0767 ]
+        elements:
+          - *A1
+  -
+    name: "griphis_3_yaw_1_link"
+    parent: "griphis_3_roll_1_link"
+    translation: [ -0.000318198, 0.000318198, -0.0767 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_3_roll_1"
+    joint_type: revolute
+    joint_axis: [ 1, -0, -0 ]
+    joint_id: 57
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0544536
+    center_of_mass: [ 0.00934924, -1.17001e-10, -0.0065657 ]
+    inertia: [
+      6.16082e-06, -1.48643e-08, 3.66332e-08,
+      -1.48643e-08, 7.36783e-06, -1.48634e-08,
+      3.66332e-08, -1.48634e-08, 7.24406e-06 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.028, -0, 0.0175 ]
+        elements:
+          - *A2
+  -
+    name: "griphis_3_pitch_1_link"
+    parent: "griphis_3_yaw_1_link"
+    translation: [ -0.028, -0, 0.0175 ]
+    joint_name: "griphis_3_yaw_1"
+    joint_type: revolute
+    joint_axis: [ -0, -0, 1 ]
+    joint_id: 56
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0105178
+    center_of_mass: [ 0.0191893, -0.0172316, -0.00342857 ]
+    inertia: [
+      5.84801e-07, 3.57322e-09, 8.81524e-08,
+      3.57322e-09, 1.04603e-06, -1.51991e-13,
+      8.81524e-08, -1.51991e-13, 9.82965e-07 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.042, 0.0175, -0.0175 ]
+        elements:
+          - *A3
+  -
+    name: "griphis_3_mid_pitch_1_link"
+    parent: "griphis_3_pitch_1_link"
+    translation: [ -0.042, 0.0175, -0.0175 ]
+    joint_name: "griphis_3_pitch_1"
+    joint_type: revolute
+    joint_axis: [ -0, -1, -0 ]
+    joint_angle: 90    
+    joint_id: 55
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0769353
+    center_of_mass: [ 0.0327517, 0.0322634, 0.000309411 ]
+    inertia: [
+      1.72123e-05, 1.01497e-08, -9.64331e-08,
+      1.01497e-08, 1.36641e-05, 5.60815e-07,
+      -9.64331e-08, 5.60815e-07, 1.63212e-05 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.064, -0.0351, -0 ]
+        elements:
+          - *A4
+  -
+    name: "griphis_3_base_link"
+    parent: "griphis_3_mid_pitch_1_link"
+    translation: [ -0.064, -0.0351, -0 ]
+    joint_name: "griphis_3_mid_pitch_1"
+    joint_type: revolute
+    joint_axis: [ -0, -1, -0 ]
+    joint_id: 54
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0797463
+    center_of_mass: [ -0.000102643, 3.31727e-05, -0.00495518 ]
+    inertia: [
+      8.57012e-06, 1.08293e-08, -5.94276e-09,
+      1.08293e-08, 1.05159e-05, 1.10583e-08,
+      -5.94276e-09, 1.10583e-08, 1.0887e-05 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.0149, 0.0176, 0.011 ]
+        elements:
+          - *A5
+  -
+    name: "griphis_3_mid_pitch_2_link"
+    parent: "griphis_3_base_link"
+    translation: [ -0.0299, 0.0352, 0.00021 ]
+    joint_name: "griphis_3_mid_pitch_2"
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 63
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0769502
+    center_of_mass: [ -0.0327474, -0.0322606, 0.000309352 ]
+    inertia: [
+      1.72131e-05, 1.01486e-08, 9.64339e-08,
+      1.01486e-08, 1.36643e-05, -5.60813e-07,
+      9.64339e-08, -5.60813e-07, 1.63207e-05 ]
+    elements:
+      - *A6
+  -
+    name: "griphis_3_pitch_2_link"
+    parent: "griphis_3_mid_pitch_2_link"
+    translation: [ -0.064, -0.0351, 0 ]
+    joint_name: "griphis_3_pitch_2"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 64
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0105178
+    center_of_mass: [ -0.0191893, 0.0172316, -0.00342857 ]
+    inertia: [
+      5.84801e-07, 3.57322e-09, -8.81524e-08,
+      3.57322e-09, 1.04603e-06, 1.51991e-13,
+      -8.81524e-08, 1.51991e-13, 9.82965e-07 ]
+    elements:
+      - *A7
+  -
+    name: "griphis_3_yaw_2_link"
+    parent: "griphis_3_pitch_2_link"
+    translation: [ -0.042, 0.0175, 0.0175 ]
+    joint_name: "griphis_3_yaw_2"
+    joint_type: revolute
+    joint_axis: [ 0, 0, -1 ]
+    joint_id: 65
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0544537
+    center_of_mass: [ -0.00934924, -1.20739e-09, -0.0065657 ]
+    inertia: [
+      6.16083e-06, -1.48631e-08, -3.66334e-08,
+      -1.48631e-08, 7.36783e-06, 1.48635e-08,
+      -3.66334e-08, 1.48635e-08, 7.24407e-06 ]
+    elements:
+      - *A8
+  -
+    name: "griphis_3_roll_2_link"
+    parent: "griphis_3_yaw_2_link"
+    translation: [ -0.028, 0, -0.0175 ]
+    joint_name: "griphis_3_roll_2"
+    joint_type: revolute
+    joint_axis: [ -1, 0, 0 ]
+    joint_id: 66
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0617239
+    center_of_mass: [ -0.0304848, 0.000533684, -0.000138764 ]
+    inertia: [
+      1.72113e-05, -2.34655e-07, -1.72187e-07,
+      -2.34655e-07, 1.09105e-05, -3.906e-08,
+      -1.72187e-07, -3.906e-08, 1.62403e-05 ]
+    elements:
+      - *A9
+  -
+    name: "griphis_3_worm_2_link"
+    parent: "griphis_3_roll_2_link"
+    translation: [ -0.047, 0, 0 ]
+    joint_name: "griphis_3_worm_rotate_2"
+    joint_type: fixed
+    joint_axis: [ 0.737217, 0, 0.675656 ]
+    joint_id: 67
+    max_joint_velocity: 572.958
+    max_joint_effort: 15
+    mass: 0.00387258
+    center_of_mass: [ -0.0068039, 5.66708e-05, 3.76181e-06 ]
+    inertia: [
+      2.06265e-07, 6.32002e-10, -1.2591e-09,
+      6.32002e-10, 1.71306e-07, 1.39153e-11,
+      -1.2591e-09, 1.39153e-11, 1.71128e-07 ]
+    elements:
+      - *A10
+  -
+    name: "griphis_3_nail1_2_link"
+    parent: "griphis_3_roll_2_link"
+    translation: [ -0.057, 0, -0.015 ]
+    joint_name: "griphis_3_nail1_rotate_2"
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_angle: 90            
+    joint_range: [90, 90]        
+    joint_id: 68
+    mass: 0.00785452
+    center_of_mass: [ -0.0375116, 0.000154762, -0.000927613 ]
+    inertia: [
+      3.26793e-07, -2.23312e-10, 3.04392e-07,
+      -2.23312e-10, 1.76175e-06, 8.72037e-12,
+      3.04392e-07, 8.72037e-12, 1.60468e-06 ]
+    elements:
+      - *A11
+  -
+    name: "griphis_3_nail2_2_link"
+    parent: "griphis_3_roll_2_link"
+    translation: [ -0.057, 0.015, 0 ]
+    joint_name: "griphis_3_nail2_rotate_2"
+    joint_type: revolute
+    joint_axis: [ 0, 0, -1 ]
+    joint_angle: 90            
+    joint_range: [90, 90]        
+    joint_id: 69
+    mass: 0.00783921
+    center_of_mass: [ -0.0375922, 0.000920668, 0.000149875 ]
+    inertia: [
+      3.26764e-07, -3.04084e-07, -3.01596e-10,
+      -3.04084e-07, 1.60307e-06, 3.50229e-11,
+      -3.01596e-10, 3.50229e-11, 1.76008e-06 ]
+    elements:
+      - *A12
+  -
+    name: "griphis_3_nail3_2_link"
+    parent: "griphis_3_roll_2_link"
+    translation: [ -0.057, 0, 0.015 ]
+    joint_name: "griphis_3_nail3_rotate_2"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_angle: 90            
+    joint_range: [90, 90]        
+    joint_id: 70
+    mass: 0.00782164
+    center_of_mass: [ -0.0376634, 4.5024e-05, 0.000912382 ]
+    inertia: [
+      3.26388e-07, 1.94469e-10, -3.03929e-07,
+      1.94469e-10, 1.7564e-06, 1.77167e-11,
+      -3.03929e-07, 1.77167e-11, 1.59917e-06 ]
+    elements:
+      - *A13
+  -
+    name: "griphis_3_nail4_2_link"
+    parent: "griphis_3_roll_2_link"
+    translation: [ -0.057, -0.015, 0 ]
+    joint_name: "griphis_3_nail4_rotate_2"
+    joint_type: revolute
+    joint_axis: [ 0, 0, 1 ]
+    joint_angle: 90            
+    joint_range: [90, 90]        
+    joint_id: 71
+    mass: 0.0078313
+    center_of_mass: [ -0.0376199, -0.000916238, -0.000157293 ]
+    inertia: [
+      3.26491e-07, 3.03989e-07, 4.37078e-10,
+      3.03989e-07, 1.60061e-06, -2.94387e-11,
+      4.37078e-10, -2.94387e-11, 1.75778e-06 ]
+    elements:
+      - *A14
+  -
+    name: "griphis_3_nail-cp2"
+    parent: "griphis_3_roll_2_link"
+    translation: [ -0.1417, -0.000318198, -0.000318198 ]
+    rotation: [ -0.57735, -0.57735, 0.57735, 120 ]
+    joint_name: "griphis_3_nail-cp2"
+    joint_type: fixed
+    mass: 0.00115854
+    center_of_mass: [ 0.000615813, -0.000615813, -0.0658092 ]
+    inertia: [
+      1.05682e-07, -1.57646e-09, -7.53304e-11,
+      -1.57646e-09, 1.05682e-07, 7.53304e-11,
+      -7.53304e-11, 7.53304e-11, 2.10813e-07 ]
+    elements:
+      - *A15
+  -
+    name: "griphis_3_gripper-cp2"
+    parent: "griphis_3_roll_2_link"
+    translation: [ -0.0767, -0.000318198, -0.000318198 ]
+    rotation: [ -0.57735, 0.57735, -0.57735, 120 ]
+    joint_name: "griphis_3_gripper-cp2"
+    joint_type: fixed
+    mass: 0.0105278
+    center_of_mass: [ 0.000249015, -0.00102239, 0.0133818 ]
+    inertia: [
+      2.49427e-06, 4.5301e-08, 6.75737e-08,
+      4.5301e-08, 2.7004e-06, 2.88247e-07,
+      6.75737e-08, 2.88247e-07, 2.67368e-06 ]
+    elements:
+      - *A16
+  -
+    name: "griphis_3_nailring2-cp1"
+    parent: "griphis_3_roll_2_link"
+    translation: [ -0.0285999, 0, 0.033 ]
+    rotation: [ 1.32557e-07, -1, -6.72257e-15, 180 ]
+    joint_name: "griphis_3_nailring2-cp1"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, 9.14134e-10,
+      4.0832e-11, 1.88948e-06, -1.81576e-12,
+      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A17
+  -
+    name: "griphis_3_nailring2-cp2"
+    parent: "griphis_3_roll_2_link"
+    translation: [ -0.0285999, -0.033, 0 ]
+    rotation: [ 1.14236e-15, 0.707107, 0.707107, 180 ]
+    joint_name: "griphis_3_nailring2-cp2"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, 9.14134e-10,
+      4.0832e-11, 1.88948e-06, -1.81576e-12,
+      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A18
+  -
+    name: "griphis_3_nailring2-cp3"
+    parent: "griphis_3_roll_2_link"
+    translation: [ -0.0284001, 0, -0.033 ]
+    rotation: [ 0, 0, 1, 180 ]
+    joint_name: "griphis_3_nailring2-cp3"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, -9.14134e-10,
+      4.0832e-11, 1.88948e-06, 1.81576e-12,
+      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
+    elements:
+      - &A19
+        type: Shape
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/nailring2-cp3.STL"
+  -
+    name: "griphis_3_nailring2-cp4"
+    parent: "griphis_3_roll_2_link"
+    translation: [ -0.0286001, 0.033, 0 ]
+    rotation: [ -1.14236e-15, -0.707107, 0.707107, 180 ]
+    joint_name: "griphis_3_nailring2-cp4"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, -9.14134e-10,
+      4.0832e-11, 1.88948e-06, 1.81576e-12,
+      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
+    elements:
+      - &A20
+        type: Shape
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/nailring2-cp4.STL"
+  -
+    name: "griphis_3_worm_1_link"
+    parent: "griphis_3_roll_1_link"
+    translation: [ -0.000318198, 0.000318198, -0.0297 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_3_worm_rotate_1"
+    joint_type: fixed
+    joint_axis: [ 1, 0, 0 ]
+    joint_id: 58
+    max_joint_velocity: 572.958
+    max_joint_effort: 15
+    mass: 0.00387258
+    center_of_mass: [ 0.0068039, 1.29536e-05, 5.52986e-05 ]
+    inertia: [
+      2.06265e-07, 1.13917e-09, -8.28881e-10,
+      1.13917e-09, 1.71137e-07, 4.18405e-11,
+      -8.28881e-10, 4.18405e-11, 1.71297e-07 ]
+    elements:
+      - &A21
+        type: Shape
+        appearance:
+          material:
+            diffuse: [ 0.752941, 0.752941, 0.752941 ]
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/worm_1_link.STL"
+  -
+    name: "griphis_3_nail1_1_link"
+    parent: "griphis_3_roll_1_link"
+    translation: [ -0.000318198, -0.0146818, -0.0197 ]
+    rotation: [ 0.57735, -0.57735, 0.57735, 120 ]
+    joint_name: "griphis_3_nail1_rotate_1"
+    joint_type: fixed
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 59
+    mass: 0.00785452
+    center_of_mass: [ 0.0375116, -4.52381e-05, 0.000927613 ]
+    inertia: [
+      3.26793e-07, 2.23312e-10, 3.04392e-07,
+      2.23312e-10, 1.76175e-06, -8.72037e-12,
+      3.04392e-07, -8.72037e-12, 1.60468e-06 ]
+    elements:
+      - &A22
+        type: Shape
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/nail1_1_link.STL"
+  -
+    name: "griphis_3_nail2_1_link"
+    parent: "griphis_3_roll_1_link"
+    translation: [ -0.0153182, 0.000318198, -0.0197 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_3_nail2_rotate_1"
+    joint_type: fixed
+    joint_axis: [ 0, 0, -1 ]
+    joint_id: 60
+    mass: 0.00783921
+    center_of_mass: [ 0.0375922, -0.000920668, -5.0125e-05 ]
+    inertia: [
+      3.26764e-07, -3.04084e-07, 3.01596e-10,
+      -3.04084e-07, 1.60307e-06, -3.50229e-11,
+      3.01596e-10, -3.50229e-11, 1.76008e-06 ]
+    elements:
+      - &A23
+        type: Shape
+        appearance:
+          material:
+            diffuse: [ 0.752941, 0.752941, 0.752941 ]
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/nail2_1_link.STL"
+  -
+    name: "griphis_3_nail3_1_link"
+    parent: "griphis_3_roll_1_link"
+    translation: [ -0.000318198, 0.0153182, -0.0197 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_3_nail3_rotate_1"
+    joint_type: fixed
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 61
+    mass: 0.00782164
+    center_of_mass: [ 0.0376634, -4.5024e-05, 0.000912382 ]
+    inertia: [
+      3.26388e-07, 1.94469e-10, 3.03929e-07,
+      1.94469e-10, 1.7564e-06, -1.77167e-11,
+      3.03929e-07, -1.77167e-11, 1.59917e-06 ]
+    elements:
+      - &A24
+        type: Shape
+        appearance:
+          material:
+            diffuse: [ 0.752941, 0.752941, 0.752941 ]
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/nail3_1_link.STL"
+  -
+    name: "griphis_3_nail4_1_link"
+    parent: "griphis_3_roll_1_link"
+    translation: [ 0.0146818, 0.000318198, -0.0197 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_3_nail4_rotate_1"
+    joint_type: fixed
+    joint_axis: [ 0, 0, 1 ]
+    joint_id: 62
+    mass: 0.0078313
+    center_of_mass: [ 0.0376199, 0.000916238, 4.27066e-05 ]
+    inertia: [
+      3.26491e-07, 3.03989e-07, -4.37078e-10,
+      3.03989e-07, 1.60061e-06, 2.94387e-11,
+      -4.37078e-10, 2.94387e-11, 1.75778e-06 ]
+    elements:
+      - &A25
+        type: Shape
+        appearance:
+          material:
+            diffuse: [ 0.752941, 0.752941, 0.752941 ]
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/nail4_1_link.STL"
+  -
+    name: "griphis_3_nail-cp1"
+    parent: "griphis_3_roll_1_link"
+    translation: [ -0.000636396, 0.00021, 0.065 ]
+    rotation: [ 1.88738e-15, -3.2474e-15, -1, 180 ]
+    joint_name: "griphis_3_nail-cp1"
+    joint_type: fixed
+    mass: 0.00115854
+    center_of_mass: [ -2.05827e-05, -0.000405813, -0.0658092 ]
+    inertia: [
+      1.05682e-07, -1.57646e-09, -7.53304e-11,
+      -1.57646e-09, 1.05682e-07, 7.53304e-11,
+      -7.53304e-11, 7.53304e-11, 2.10813e-07 ]
+    elements:
+      - &A26
+        type: Shape
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/nail-cp1.STL"
+  -
+    name: "griphis_3_nailring1-cp1"
+    parent: "griphis_3_roll_1_link"
+    translation: [ -0.000318198, 0.0333182, -0.0481001 ]
+    rotation: [ 0.57735, -0.57735, 0.57735, 120 ]
+    joint_name: "griphis_3_nailring1-cp1"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, 9.14134e-10,
+      4.0832e-11, 1.88948e-06, -1.81576e-12,
+      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
+    elements:
+      - &A27
+        type: Shape
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/nailring1-cp1.STL"
+  -
+    name: "griphis_3_nailring1-cp2"
+    parent: "griphis_3_roll_1_link"
+    translation: [ 0.0326818, 0.000318198, -0.0481001 ]
+    rotation: [ -2.82274e-14, -1, -2.82274e-14, 90 ]
+    joint_name: "griphis_3_nailring1-cp2"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, 9.14134e-10,
+      4.0832e-11, 1.88948e-06, -1.81576e-12,
+      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
+    elements:
+      - &A28
+        type: Shape
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/nailring1-cp2.STL"
+  -
+    name: "griphis_3_nailring1-cp3"
+    parent: "griphis_3_roll_1_link"
+    translation: [ -0.000318198, -0.0326818, -0.0482999 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_3_nailring1-cp3"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, -9.14134e-10,
+      4.0832e-11, 1.88948e-06, 1.81576e-12,
+      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
+    elements:
+      - &A29
+        type: Shape
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/nailring1-cp3.STL"
+  -
+    name: "griphis_3_nailring1-cp4"
+    parent: "griphis_3_roll_1_link"
+    translation: [ -0.0333182, 0.000318198, -0.0480999 ]
+    rotation: [ 0.707107, -2.23386e-14, 0.707107, 180 ]
+    joint_name: "griphis_3_nailring1-cp4"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, -9.14134e-10,
+      4.0832e-11, 1.88948e-06, 1.81576e-12,
+      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
+    elements:
+      - &A30
+        type: Shape
+        geometry:
+          type: Resource
+          uri: "griphis_xacro_stl/meshes/nailring1-cp4.STL"
+  -
+    name: "griphis_0_nailring2-cp3"
+    parent: "griphis_0_roll_2_link"
+    translation: [ -0.0284001, 0, -0.033 ]
+    rotation: [ 0, 0, 1, 180 ]
+    joint_name: "griphis_0_nailring2-cp3"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, -9.14134e-10,
+      4.0832e-11, 1.88948e-06, 1.81576e-12,
+      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A19
+  -
+    name: "griphis_0_nailring2-cp4"
+    parent: "griphis_0_roll_2_link"
+    translation: [ -0.0286001, 0.033, 0 ]
+    rotation: [ -1.14236e-15, -0.707107, 0.707107, 180 ]
+    joint_name: "griphis_0_nailring2-cp4"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, -9.14134e-10,
+      4.0832e-11, 1.88948e-06, 1.81576e-12,
+      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A20
+  -
+    name: "griphis_4_gripper-cp1"
+    parent: "griphis_0_nailring2-cp4"
+    translation: [ 0, 0, -0.07 ]
+    rotation: [ 0, 0, 1, 179.909 ]
+    joint_name: "griphis_4_gripper-cp1_to_griphis_0_nailring2-cp4_joint"
+    joint_type: fixed
+    mass: 0.0105278
+    center_of_mass: [ -0.000249015, -0.00102239, -0.0133818 ]
+    inertia: [
+      2.49427e-06, -4.5301e-08, 6.75737e-08,
+      -4.5301e-08, 2.7004e-06, -2.88247e-07,
+      6.75737e-08, -2.88247e-07, 2.67368e-06 ]
+    elements:
+      - *A0
+  -
+    name: "griphis_4_roll_1_link"
+    parent: "griphis_4_gripper-cp1"
+    joint_name: "griphis_4_gripper-cp1"
+    joint_type: fixed
+    mass: 0.0617239
+    center_of_mass: [ 0.0304848, -0.000533684, -0.000138764 ]
+    inertia: [
+      1.72113e-05, -2.34655e-07, 1.72187e-07,
+      -2.34655e-07, 1.09105e-05, 3.906e-08,
+      1.72187e-07, 3.906e-08, 1.62403e-05 ]
+    elements:
+      -
+        type: Transform
+        rotation: [ -0.57735026919, -0.57735026919, -0.57735026919, 120 ]
+        translation: [ -0.000318198051527, 0.000318198051528, -0.0767 ]
+        elements:
+          - *A1
+  -
+    name: "griphis_4_yaw_1_link"
+    parent: "griphis_4_roll_1_link"
+    translation: [ -0.000318198, 0.000318198, -0.0767 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_4_roll_1"
+    joint_type: revolute
+    joint_axis: [ 1, -0, -0 ]
+    joint_id: 75
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0544536
+    center_of_mass: [ 0.00934924, -1.17001e-10, -0.0065657 ]
+    inertia: [
+      6.16082e-06, -1.48643e-08, 3.66332e-08,
+      -1.48643e-08, 7.36783e-06, -1.48634e-08,
+      3.66332e-08, -1.48634e-08, 7.24406e-06 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.028, -0, 0.0175 ]
+        elements:
+          - *A2
+  -
+    name: "griphis_4_pitch_1_link"
+    parent: "griphis_4_yaw_1_link"
+    translation: [ -0.028, -0, 0.0175 ]
+    joint_name: "griphis_4_yaw_1"
+    joint_type: revolute
+    joint_axis: [ -0, -0, 1 ]
+    joint_id: 74
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0105178
+    center_of_mass: [ 0.0191893, -0.0172316, -0.00342857 ]
+    inertia: [
+      5.84801e-07, 3.57322e-09, 8.81524e-08,
+      3.57322e-09, 1.04603e-06, -1.51991e-13,
+      8.81524e-08, -1.51991e-13, 9.82965e-07 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.042, 0.0175, -0.0175 ]
+        elements:
+          - *A3
+  -
+    name: "griphis_4_mid_pitch_1_link"
+    parent: "griphis_4_pitch_1_link"
+    translation: [ -0.042, 0.0175, -0.0175 ]
+    joint_name: "griphis_4_pitch_1"
+    joint_type: revolute
+    joint_axis: [ -0, -1, -0 ]
+    joint_angle: 90    
+    joint_id: 73
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0769353
+    center_of_mass: [ 0.0327517, 0.0322634, 0.000309411 ]
+    inertia: [
+      1.72123e-05, 1.01497e-08, -9.64331e-08,
+      1.01497e-08, 1.36641e-05, 5.60815e-07,
+      -9.64331e-08, 5.60815e-07, 1.63212e-05 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.064, -0.0351, -0 ]
+        elements:
+          - *A4
+  -
+    name: "griphis_4_base_link"
+    parent: "griphis_4_mid_pitch_1_link"
+    translation: [ -0.064, -0.0351, -0 ]
+    joint_name: "griphis_4_mid_pitch_1"
+    joint_type: revolute
+    joint_axis: [ -0, -1, -0 ]
+    joint_id: 72
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0797463
+    center_of_mass: [ -0.000102643, 3.31727e-05, -0.00495518 ]
+    inertia: [
+      8.57012e-06, 1.08293e-08, -5.94276e-09,
+      1.08293e-08, 1.05159e-05, 1.10583e-08,
+      -5.94276e-09, 1.10583e-08, 1.0887e-05 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.0149, 0.0176, 0.011 ]
+        elements:
+          - *A5
+  -
+    name: "griphis_4_mid_pitch_2_link"
+    parent: "griphis_4_base_link"
+    translation: [ -0.0299, 0.0352, 0.00021 ]
+    joint_name: "griphis_4_mid_pitch_2"
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 81
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0769502
+    center_of_mass: [ -0.0327474, -0.0322606, 0.000309352 ]
+    inertia: [
+      1.72131e-05, 1.01486e-08, 9.64339e-08,
+      1.01486e-08, 1.36643e-05, -5.60813e-07,
+      9.64339e-08, -5.60813e-07, 1.63207e-05 ]
+    elements:
+      - *A6
+  -
+    name: "griphis_4_pitch_2_link"
+    parent: "griphis_4_mid_pitch_2_link"
+    translation: [ -0.064, -0.0351, 0 ]
+    joint_name: "griphis_4_pitch_2"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 82
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0105178
+    center_of_mass: [ -0.0191893, 0.0172316, -0.00342857 ]
+    inertia: [
+      5.84801e-07, 3.57322e-09, -8.81524e-08,
+      3.57322e-09, 1.04603e-06, 1.51991e-13,
+      -8.81524e-08, 1.51991e-13, 9.82965e-07 ]
+    elements:
+      - *A7
+  -
+    name: "griphis_4_yaw_2_link"
+    parent: "griphis_4_pitch_2_link"
+    translation: [ -0.042, 0.0175, 0.0175 ]
+    joint_name: "griphis_4_yaw_2"
+    joint_type: revolute
+    joint_axis: [ 0, 0, -1 ]
+    joint_id: 83
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0544537
+    center_of_mass: [ -0.00934924, -1.20739e-09, -0.0065657 ]
+    inertia: [
+      6.16083e-06, -1.48631e-08, -3.66334e-08,
+      -1.48631e-08, 7.36783e-06, 1.48635e-08,
+      -3.66334e-08, 1.48635e-08, 7.24407e-06 ]
+    elements:
+      - *A8
+  -
+    name: "griphis_4_roll_2_link"
+    parent: "griphis_4_yaw_2_link"
+    translation: [ -0.028, 0, -0.0175 ]
+    joint_name: "griphis_4_roll_2"
+    joint_type: revolute
+    joint_axis: [ -1, 0, 0 ]
+    joint_id: 84
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0617239
+    center_of_mass: [ -0.0304848, 0.000533684, -0.000138764 ]
+    inertia: [
+      1.72113e-05, -2.34655e-07, -1.72187e-07,
+      -2.34655e-07, 1.09105e-05, -3.906e-08,
+      -1.72187e-07, -3.906e-08, 1.62403e-05 ]
+    elements:
+      - *A9
+  -
+    name: "griphis_4_worm_2_link"
+    parent: "griphis_4_roll_2_link"
+    translation: [ -0.047, 0, 0 ]
+    joint_name: "griphis_4_worm_rotate_2"
+    joint_type: fixed
+    joint_axis: [ 0.737217, 0, 0.675656 ]
+    joint_id: 85
+    max_joint_velocity: 572.958
+    max_joint_effort: 15
+    mass: 0.00387258
+    center_of_mass: [ -0.0068039, 5.66708e-05, 3.76181e-06 ]
+    inertia: [
+      2.06265e-07, 6.32002e-10, -1.2591e-09,
+      6.32002e-10, 1.71306e-07, 1.39153e-11,
+      -1.2591e-09, 1.39153e-11, 1.71128e-07 ]
+    elements:
+      - *A10
+  -
+    name: "griphis_4_nail1_2_link"
+    parent: "griphis_4_roll_2_link"
+    translation: [ -0.057, 0, -0.015 ]
+    joint_name: "griphis_4_nail1_rotate_2"
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_angle: 90            
+    joint_range: [90, 90]        
+    joint_id: 86
+    mass: 0.00785452
+    center_of_mass: [ -0.0375116, 0.000154762, -0.000927613 ]
+    inertia: [
+      3.26793e-07, -2.23312e-10, 3.04392e-07,
+      -2.23312e-10, 1.76175e-06, 8.72037e-12,
+      3.04392e-07, 8.72037e-12, 1.60468e-06 ]
+    elements:
+      - *A11
+  -
+    name: "griphis_4_nail2_2_link"
+    parent: "griphis_4_roll_2_link"
+    translation: [ -0.057, 0.015, 0 ]
+    joint_name: "griphis_4_nail2_rotate_2"
+    joint_type: revolute
+    joint_axis: [ 0, 0, -1 ]
+    joint_angle: 90            
+    joint_range: [90, 90]        
+    joint_id: 87
+    mass: 0.00783921
+    center_of_mass: [ -0.0375922, 0.000920668, 0.000149875 ]
+    inertia: [
+      3.26764e-07, -3.04084e-07, -3.01596e-10,
+      -3.04084e-07, 1.60307e-06, 3.50229e-11,
+      -3.01596e-10, 3.50229e-11, 1.76008e-06 ]
+    elements:
+      - *A12
+  -
+    name: "griphis_4_nail3_2_link"
+    parent: "griphis_4_roll_2_link"
+    translation: [ -0.057, 0, 0.015 ]
+    joint_name: "griphis_4_nail3_rotate_2"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_angle: 90            
+    joint_range: [90, 90]        
+    joint_id: 88
+    mass: 0.00782164
+    center_of_mass: [ -0.0376634, 4.5024e-05, 0.000912382 ]
+    inertia: [
+      3.26388e-07, 1.94469e-10, -3.03929e-07,
+      1.94469e-10, 1.7564e-06, 1.77167e-11,
+      -3.03929e-07, 1.77167e-11, 1.59917e-06 ]
+    elements:
+      - *A13
+  -
+    name: "griphis_4_nail4_2_link"
+    parent: "griphis_4_roll_2_link"
+    translation: [ -0.057, -0.015, 0 ]
+    joint_name: "griphis_4_nail4_rotate_2"
+    joint_type: revolute
+    joint_axis: [ 0, 0, 1 ]
+    joint_angle: 90            
+    joint_range: [90, 90]        
+    joint_id: 89
+    mass: 0.0078313
+    center_of_mass: [ -0.0376199, -0.000916238, -0.000157293 ]
+    inertia: [
+      3.26491e-07, 3.03989e-07, 4.37078e-10,
+      3.03989e-07, 1.60061e-06, -2.94387e-11,
+      4.37078e-10, -2.94387e-11, 1.75778e-06 ]
+    elements:
+      - *A14
+  -
+    name: "griphis_4_nail-cp2"
+    parent: "griphis_4_roll_2_link"
+    translation: [ -0.1417, -0.000318198, -0.000318198 ]
+    rotation: [ -0.57735, -0.57735, 0.57735, 120 ]
+    joint_name: "griphis_4_nail-cp2"
+    joint_type: fixed
+    mass: 0.00115854
+    center_of_mass: [ 0.000615813, -0.000615813, -0.0658092 ]
+    inertia: [
+      1.05682e-07, -1.57646e-09, -7.53304e-11,
+      -1.57646e-09, 1.05682e-07, 7.53304e-11,
+      -7.53304e-11, 7.53304e-11, 2.10813e-07 ]
+    elements:
+      - *A15
+  -
+    name: "griphis_4_gripper-cp2"
+    parent: "griphis_4_roll_2_link"
+    translation: [ -0.0767, -0.000318198, -0.000318198 ]
+    rotation: [ -0.57735, 0.57735, -0.57735, 120 ]
+    joint_name: "griphis_4_gripper-cp2"
+    joint_type: fixed
+    mass: 0.0105278
+    center_of_mass: [ 0.000249015, -0.00102239, 0.0133818 ]
+    inertia: [
+      2.49427e-06, 4.5301e-08, 6.75737e-08,
+      4.5301e-08, 2.7004e-06, 2.88247e-07,
+      6.75737e-08, 2.88247e-07, 2.67368e-06 ]
+    elements:
+      - *A16
+  -
+    name: "griphis_4_nailring2-cp1"
+    parent: "griphis_4_roll_2_link"
+    translation: [ -0.0285999, 0, 0.033 ]
+    rotation: [ 1.32557e-07, -1, -6.72257e-15, 180 ]
+    joint_name: "griphis_4_nailring2-cp1"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, 9.14134e-10,
+      4.0832e-11, 1.88948e-06, -1.81576e-12,
+      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A17
+  -
+    name: "griphis_4_nailring2-cp2"
+    parent: "griphis_4_roll_2_link"
+    translation: [ -0.0285999, -0.033, 0 ]
+    rotation: [ 1.14236e-15, 0.707107, 0.707107, 180 ]
+    joint_name: "griphis_4_nailring2-cp2"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, 9.14134e-10,
+      4.0832e-11, 1.88948e-06, -1.81576e-12,
+      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A18
+  -
+    name: "griphis_4_nailring2-cp3"
+    parent: "griphis_4_roll_2_link"
+    translation: [ -0.0284001, 0, -0.033 ]
+    rotation: [ 0, 0, 1, 180 ]
+    joint_name: "griphis_4_nailring2-cp3"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, -9.14134e-10,
+      4.0832e-11, 1.88948e-06, 1.81576e-12,
+      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A19
+  -
+    name: "griphis_4_nailring2-cp4"
+    parent: "griphis_4_roll_2_link"
+    translation: [ -0.0286001, 0.033, 0 ]
+    rotation: [ -1.14236e-15, -0.707107, 0.707107, 180 ]
+    joint_name: "griphis_4_nailring2-cp4"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, -9.14134e-10,
+      4.0832e-11, 1.88948e-06, 1.81576e-12,
+      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A20
+  -
+    name: "griphis_4_worm_1_link"
+    parent: "griphis_4_roll_1_link"
+    translation: [ -0.000318198, 0.000318198, -0.0297 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_4_worm_rotate_1"
+    joint_type: fixed
+    joint_axis: [ 1, 0, 0 ]
+    joint_id: 76
+    max_joint_velocity: 572.958
+    max_joint_effort: 15
+    mass: 0.00387258
+    center_of_mass: [ 0.0068039, 1.29536e-05, 5.52986e-05 ]
+    inertia: [
+      2.06265e-07, 1.13917e-09, -8.28881e-10,
+      1.13917e-09, 1.71137e-07, 4.18405e-11,
+      -8.28881e-10, 4.18405e-11, 1.71297e-07 ]
+    elements:
+      - *A21
+  -
+    name: "griphis_4_nail1_1_link"
+    parent: "griphis_4_roll_1_link"
+    translation: [ -0.000318198, -0.0146818, -0.0197 ]
+    rotation: [ 0.57735, -0.57735, 0.57735, 120 ]
+    joint_name: "griphis_4_nail1_rotate_1"
+    joint_type: fixed
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 77
+    mass: 0.00785452
+    center_of_mass: [ 0.0375116, -4.52381e-05, 0.000927613 ]
+    inertia: [
+      3.26793e-07, 2.23312e-10, 3.04392e-07,
+      2.23312e-10, 1.76175e-06, -8.72037e-12,
+      3.04392e-07, -8.72037e-12, 1.60468e-06 ]
+    elements:
+      - *A22
+  -
+    name: "griphis_4_nail2_1_link"
+    parent: "griphis_4_roll_1_link"
+    translation: [ -0.0153182, 0.000318198, -0.0197 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_4_nail2_rotate_1"
+    joint_type: fixed
+    joint_axis: [ 0, 0, -1 ]
+    joint_id: 78
+    mass: 0.00783921
+    center_of_mass: [ 0.0375922, -0.000920668, -5.0125e-05 ]
+    inertia: [
+      3.26764e-07, -3.04084e-07, 3.01596e-10,
+      -3.04084e-07, 1.60307e-06, -3.50229e-11,
+      3.01596e-10, -3.50229e-11, 1.76008e-06 ]
+    elements:
+      - *A23
+  -
+    name: "griphis_4_nail3_1_link"
+    parent: "griphis_4_roll_1_link"
+    translation: [ -0.000318198, 0.0153182, -0.0197 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_4_nail3_rotate_1"
+    joint_type: fixed
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 79
+    mass: 0.00782164
+    center_of_mass: [ 0.0376634, -4.5024e-05, 0.000912382 ]
+    inertia: [
+      3.26388e-07, 1.94469e-10, 3.03929e-07,
+      1.94469e-10, 1.7564e-06, -1.77167e-11,
+      3.03929e-07, -1.77167e-11, 1.59917e-06 ]
+    elements:
+      - *A24
+  -
+    name: "griphis_4_nail4_1_link"
+    parent: "griphis_4_roll_1_link"
+    translation: [ 0.0146818, 0.000318198, -0.0197 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_4_nail4_rotate_1"
+    joint_type: fixed
+    joint_axis: [ 0, 0, 1 ]
+    joint_id: 80
+    mass: 0.0078313
+    center_of_mass: [ 0.0376199, 0.000916238, 4.27066e-05 ]
+    inertia: [
+      3.26491e-07, 3.03989e-07, -4.37078e-10,
+      3.03989e-07, 1.60061e-06, 2.94387e-11,
+      -4.37078e-10, 2.94387e-11, 1.75778e-06 ]
+    elements:
+      - *A25
+  -
+    name: "griphis_4_nail-cp1"
+    parent: "griphis_4_roll_1_link"
+    translation: [ -0.000636396, 0.00021, 0.065 ]
+    rotation: [ 1.88738e-15, -3.2474e-15, -1, 180 ]
+    joint_name: "griphis_4_nail-cp1"
+    joint_type: fixed
+    mass: 0.00115854
+    center_of_mass: [ -2.05827e-05, -0.000405813, -0.0658092 ]
+    inertia: [
+      1.05682e-07, -1.57646e-09, -7.53304e-11,
+      -1.57646e-09, 1.05682e-07, 7.53304e-11,
+      -7.53304e-11, 7.53304e-11, 2.10813e-07 ]
+    elements:
+      - *A26
+  -
+    name: "griphis_4_nailring1-cp1"
+    parent: "griphis_4_roll_1_link"
+    translation: [ -0.000318198, 0.0333182, -0.0481001 ]
+    rotation: [ 0.57735, -0.57735, 0.57735, 120 ]
+    joint_name: "griphis_4_nailring1-cp1"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, 9.14134e-10,
+      4.0832e-11, 1.88948e-06, -1.81576e-12,
+      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A27
+  -
+    name: "griphis_4_nailring1-cp2"
+    parent: "griphis_4_roll_1_link"
+    translation: [ 0.0326818, 0.000318198, -0.0481001 ]
+    rotation: [ -2.82274e-14, -1, -2.82274e-14, 90 ]
+    joint_name: "griphis_4_nailring1-cp2"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, 9.14134e-10,
+      4.0832e-11, 1.88948e-06, -1.81576e-12,
+      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A28
+  -
+    name: "griphis_4_nailring1-cp3"
+    parent: "griphis_4_roll_1_link"
+    translation: [ -0.000318198, -0.0326818, -0.0482999 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_4_nailring1-cp3"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, -9.14134e-10,
+      4.0832e-11, 1.88948e-06, 1.81576e-12,
+      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A29
+  -
+    name: "griphis_4_nailring1-cp4"
+    parent: "griphis_4_roll_1_link"
+    translation: [ -0.0333182, 0.000318198, -0.0480999 ]
+    rotation: [ 0.707107, -2.23386e-14, 0.707107, 180 ]
+    joint_name: "griphis_4_nailring1-cp4"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, -9.14134e-10,
+      4.0832e-11, 1.88948e-06, 1.81576e-12,
+      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A30
+  -
+    name: "griphis_0_worm_1_link"
+    parent: "griphis_0_roll_1_link"
+    translation: [ -0.000318198, 0.000318198, -0.0297 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_0_worm_rotate_1"
+    joint_type: fixed
+    joint_axis: [ 1, 0, 0 ]
+    joint_id: 4
+    max_joint_velocity: 572.958
+    max_joint_effort: 15
+    mass: 0.00387258
+    center_of_mass: [ 0.0068039, 1.29536e-05, 5.52986e-05 ]
+    inertia: [
+      2.06265e-07, 1.13917e-09, -8.28881e-10,
+      1.13917e-09, 1.71137e-07, 4.18405e-11,
+      -8.28881e-10, 4.18405e-11, 1.71297e-07 ]
+    elements:
+      - *A21
+  -
+    name: "griphis_0_nail1_1_link"
+    parent: "griphis_0_roll_1_link"
+    translation: [ -0.000318198, -0.0146818, -0.0197 ]
+    rotation: [ 0.57735, -0.57735, 0.57735, 120 ]
+    joint_name: "griphis_0_nail1_rotate_1"
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_angle: 90
+    joint_range: [90, 90]    
+    joint_id: 5
+    mass: 0.00785452
+    center_of_mass: [ 0.0375116, -4.52381e-05, 0.000927613 ]
+    inertia: [
+      3.26793e-07, 2.23312e-10, 3.04392e-07,
+      2.23312e-10, 1.76175e-06, -8.72037e-12,
+      3.04392e-07, -8.72037e-12, 1.60468e-06 ]
+    elements:
+      - *A22
+  -
+    name: "griphis_0_nail2_1_link"
+    parent: "griphis_0_roll_1_link"
+    translation: [ -0.0153182, 0.000318198, -0.0197 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_0_nail2_rotate_1"
+    joint_type: revolute
+    joint_axis: [ 0, 0, -1 ]
+    joint_angle: 90
+    joint_range: [90, 90]        
+    joint_id: 6
+    mass: 0.00783921
+    center_of_mass: [ 0.0375922, -0.000920668, -5.0125e-05 ]
+    inertia: [
+      3.26764e-07, -3.04084e-07, 3.01596e-10,
+      -3.04084e-07, 1.60307e-06, -3.50229e-11,
+      3.01596e-10, -3.50229e-11, 1.76008e-06 ]
+    elements:
+      - *A23
+  -
+    name: "griphis_0_nail3_1_link"
+    parent: "griphis_0_roll_1_link"
+    translation: [ -0.000318198, 0.0153182, -0.0197 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_0_nail3_rotate_1"
+    joint_angle: 90    
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_range: [90, 90]        
+    joint_id: 7
+    mass: 0.00782164
+    center_of_mass: [ 0.0376634, -4.5024e-05, 0.000912382 ]
+    inertia: [
+      3.26388e-07, 1.94469e-10, 3.03929e-07,
+      1.94469e-10, 1.7564e-06, -1.77167e-11,
+      3.03929e-07, -1.77167e-11, 1.59917e-06 ]
+    elements:
+      - *A24
+  -
+    name: "griphis_0_nail4_1_link"
+    parent: "griphis_0_roll_1_link"
+    translation: [ 0.0146818, 0.000318198, -0.0197 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_0_nail4_rotate_1"
+    joint_type: revolute
+    joint_angle: 90            
+    joint_range: [90, 90]
+    joint_axis: [ 0, 0, 1 ]
+    joint_id: 8
+    mass: 0.0078313
+    center_of_mass: [ 0.0376199, 0.000916238, 4.27066e-05 ]
+    inertia: [
+      3.26491e-07, 3.03989e-07, -4.37078e-10,
+      3.03989e-07, 1.60061e-06, 2.94387e-11,
+      -4.37078e-10, 2.94387e-11, 1.75778e-06 ]
+    elements:
+      - *A25
+  -
+    name: "griphis_0_nail-cp1"
+    parent: "griphis_0_roll_1_link"
+    translation: [ -0.000636396, 0.00021, 0.065 ]
+    rotation: [ 1.88738e-15, -3.2474e-15, -1, 180 ]
+    joint_name: "griphis_0_nail-cp1"
+    joint_type: fixed
+    mass: 0.00115854
+    center_of_mass: [ -2.05827e-05, -0.000405813, -0.0658092 ]
+    inertia: [
+      1.05682e-07, -1.57646e-09, -7.53304e-11,
+      -1.57646e-09, 1.05682e-07, 7.53304e-11,
+      -7.53304e-11, 7.53304e-11, 2.10813e-07 ]
+    elements:
+      - *A26
+  -
+    name: "griphis_0_nailring1-cp1"
+    parent: "griphis_0_roll_1_link"
+    translation: [ -0.000318198, 0.0333182, -0.0481001 ]
+    rotation: [ 0.57735, -0.57735, 0.57735, 120 ]
+    joint_name: "griphis_0_nailring1-cp1"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, 9.14134e-10,
+      4.0832e-11, 1.88948e-06, -1.81576e-12,
+      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A27
+  -
+    name: "griphis_0_nailring1-cp2"
+    parent: "griphis_0_roll_1_link"
+    translation: [ 0.0326818, 0.000318198, -0.0481001 ]
+    rotation: [ -2.82274e-14, -1, -2.82274e-14, 90 ]
+    joint_name: "griphis_0_nailring1-cp2"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, 9.14134e-10,
+      4.0832e-11, 1.88948e-06, -1.81576e-12,
+      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A28
+  -
+    name: "griphis_1_gripper-cp1"
+    parent: "griphis_0_nailring1-cp2"
+    translation: [ 0, 0, -0.07 ]
+    joint_name: "griphis_1_gripper-cp1_to_griphis_0_nailring1-cp2_joint"
+    joint_type: fixed
+    mass: 0.0105278
+    center_of_mass: [ -0.000249015, -0.00102239, -0.0133818 ]
+    inertia: [
+      2.49427e-06, -4.5301e-08, 6.75737e-08,
+      -4.5301e-08, 2.7004e-06, -2.88247e-07,
+      6.75737e-08, -2.88247e-07, 2.67368e-06 ]
+    elements:
+      - *A0
+  -
+    name: "griphis_1_roll_1_link"
+    parent: "griphis_1_gripper-cp1"
+    joint_name: "griphis_1_gripper-cp1"
+    joint_type: fixed
+    mass: 0.0617239
+    center_of_mass: [ 0.0304848, -0.000533684, -0.000138764 ]
+    inertia: [
+      1.72113e-05, -2.34655e-07, 1.72187e-07,
+      -2.34655e-07, 1.09105e-05, 3.906e-08,
+      1.72187e-07, 3.906e-08, 1.62403e-05 ]
+    elements:
+      -
+        type: Transform
+        rotation: [ -0.57735026919, -0.57735026919, -0.57735026919, 120 ]
+        translation: [ -0.000318198051527, 0.000318198051528, -0.0767 ]
+        elements:
+          - *A1
+  -
+    name: "griphis_1_yaw_1_link"
+    parent: "griphis_1_roll_1_link"
+    translation: [ -0.000318198, 0.000318198, -0.0767 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_1_roll_1"
+    joint_type: revolute
+    joint_axis: [ 1, -0, -0 ]
+    joint_id: 21
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0544536
+    center_of_mass: [ 0.00934924, -1.17001e-10, -0.0065657 ]
+    inertia: [
+      6.16082e-06, -1.48643e-08, 3.66332e-08,
+      -1.48643e-08, 7.36783e-06, -1.48634e-08,
+      3.66332e-08, -1.48634e-08, 7.24406e-06 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.028, -0, 0.0175 ]
+        elements:
+          - *A2
+  -
+    name: "griphis_1_pitch_1_link"
+    parent: "griphis_1_yaw_1_link"
+    translation: [ -0.028, -0, 0.0175 ]
+    joint_name: "griphis_1_yaw_1"
+    joint_type: revolute
+    joint_axis: [ -0, -0, 1 ]
+    joint_id: 20
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0105178
+    center_of_mass: [ 0.0191893, -0.0172316, -0.00342857 ]
+    inertia: [
+      5.84801e-07, 3.57322e-09, 8.81524e-08,
+      3.57322e-09, 1.04603e-06, -1.51991e-13,
+      8.81524e-08, -1.51991e-13, 9.82965e-07 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.042, 0.0175, -0.0175 ]
+        elements:
+          - *A3
+  -
+    name: "griphis_1_mid_pitch_1_link"
+    parent: "griphis_1_pitch_1_link"
+    translation: [ -0.042, 0.0175, -0.0175 ]
+    joint_name: "griphis_1_pitch_1"
+    joint_type: revolute
+    joint_axis: [ -0, -1, -0 ]
+    joint_angle: 90
+    joint_id: 19
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0769353
+    center_of_mass: [ 0.0327517, 0.0322634, 0.000309411 ]
+    inertia: [
+      1.72123e-05, 1.01497e-08, -9.64331e-08,
+      1.01497e-08, 1.36641e-05, 5.60815e-07,
+      -9.64331e-08, 5.60815e-07, 1.63212e-05 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.064, -0.0351, -0 ]
+        elements:
+          - *A4
+  -
+    name: "griphis_1_base_link"
+    parent: "griphis_1_mid_pitch_1_link"
+    translation: [ -0.064, -0.0351, -0 ]
+    joint_name: "griphis_1_mid_pitch_1"
+    joint_type: revolute
+    joint_axis: [ -0, -1, -0 ]
+    joint_id: 18
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0797463
+    center_of_mass: [ -0.000102643, 3.31727e-05, -0.00495518 ]
+    inertia: [
+      8.57012e-06, 1.08293e-08, -5.94276e-09,
+      1.08293e-08, 1.05159e-05, 1.10583e-08,
+      -5.94276e-09, 1.10583e-08, 1.0887e-05 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.0149, 0.0176, 0.011 ]
+        elements:
+          - *A5
+  -
+    name: "griphis_1_mid_pitch_2_link"
+    parent: "griphis_1_base_link"
+    translation: [ -0.0299, 0.0352, 0.00021 ]
+    joint_name: "griphis_1_mid_pitch_2"
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 27
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0769502
+    center_of_mass: [ -0.0327474, -0.0322606, 0.000309352 ]
+    inertia: [
+      1.72131e-05, 1.01486e-08, 9.64339e-08,
+      1.01486e-08, 1.36643e-05, -5.60813e-07,
+      9.64339e-08, -5.60813e-07, 1.63207e-05 ]
+    elements:
+      - *A6
+  -
+    name: "griphis_1_pitch_2_link"
+    parent: "griphis_1_mid_pitch_2_link"
+    translation: [ -0.064, -0.0351, 0 ]
+    joint_name: "griphis_1_pitch_2"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 28
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0105178
+    center_of_mass: [ -0.0191893, 0.0172316, -0.00342857 ]
+    inertia: [
+      5.84801e-07, 3.57322e-09, -8.81524e-08,
+      3.57322e-09, 1.04603e-06, 1.51991e-13,
+      -8.81524e-08, 1.51991e-13, 9.82965e-07 ]
+    elements:
+      - *A7
+  -
+    name: "griphis_1_yaw_2_link"
+    parent: "griphis_1_pitch_2_link"
+    translation: [ -0.042, 0.0175, 0.0175 ]
+    joint_name: "griphis_1_yaw_2"
+    joint_type: revolute
+    joint_axis: [ 0, 0, -1 ]
+    joint_id: 29
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0544537
+    center_of_mass: [ -0.00934924, -1.20739e-09, -0.0065657 ]
+    inertia: [
+      6.16083e-06, -1.48631e-08, -3.66334e-08,
+      -1.48631e-08, 7.36783e-06, 1.48635e-08,
+      -3.66334e-08, 1.48635e-08, 7.24407e-06 ]
+    elements:
+      - *A8
+  -
+    name: "griphis_1_roll_2_link"
+    parent: "griphis_1_yaw_2_link"
+    translation: [ -0.028, 0, -0.0175 ]
+    joint_name: "griphis_1_roll_2"
+    joint_type: revolute
+    joint_axis: [ -1, 0, 0 ]
+    joint_id: 30
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0617239
+    center_of_mass: [ -0.0304848, 0.000533684, -0.000138764 ]
+    inertia: [
+      1.72113e-05, -2.34655e-07, -1.72187e-07,
+      -2.34655e-07, 1.09105e-05, -3.906e-08,
+      -1.72187e-07, -3.906e-08, 1.62403e-05 ]
+    elements:
+      - *A9
+  -
+    name: "griphis_1_worm_2_link"
+    parent: "griphis_1_roll_2_link"
+    translation: [ -0.047, 0, 0 ]
+    joint_name: "griphis_1_worm_rotate_2"
+    joint_type: fixed
+    joint_axis: [ 0.737217, 0, 0.675656 ]
+    joint_id: 31
+    max_joint_velocity: 572.958
+    max_joint_effort: 15
+    mass: 0.00387258
+    center_of_mass: [ -0.0068039, 5.66708e-05, 3.76181e-06 ]
+    inertia: [
+      2.06265e-07, 6.32002e-10, -1.2591e-09,
+      6.32002e-10, 1.71306e-07, 1.39153e-11,
+      -1.2591e-09, 1.39153e-11, 1.71128e-07 ]
+    elements:
+      - *A10
+  -
+    name: "griphis_1_nail1_2_link"
+    parent: "griphis_1_roll_2_link"
+    translation: [ -0.057, 0, -0.015 ]
+    joint_name: "griphis_1_nail1_rotate_2"
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_angle: 90            
+    joint_range: [90, 90]    
+    joint_id: 32
+    mass: 0.00785452
+    center_of_mass: [ -0.0375116, 0.000154762, -0.000927613 ]
+    inertia: [
+      3.26793e-07, -2.23312e-10, 3.04392e-07,
+      -2.23312e-10, 1.76175e-06, 8.72037e-12,
+      3.04392e-07, 8.72037e-12, 1.60468e-06 ]
+    elements:
+      - *A11
+  -
+    name: "griphis_1_nail2_2_link"
+    parent: "griphis_1_roll_2_link"
+    translation: [ -0.057, 0.015, 0 ]
+    joint_name: "griphis_1_nail2_rotate_2"
+    joint_type: revolute
+    joint_axis: [ 0, 0, -1 ]
+    joint_angle: 90            
+    joint_range: [90, 90]    
+    joint_id: 33
+    mass: 0.00783921
+    center_of_mass: [ -0.0375922, 0.000920668, 0.000149875 ]
+    inertia: [
+      3.26764e-07, -3.04084e-07, -3.01596e-10,
+      -3.04084e-07, 1.60307e-06, 3.50229e-11,
+      -3.01596e-10, 3.50229e-11, 1.76008e-06 ]
+    elements:
+      - *A12
+  -
+    name: "griphis_1_nail3_2_link"
+    parent: "griphis_1_roll_2_link"
+    translation: [ -0.057, 0, 0.015 ]
+    joint_name: "griphis_1_nail3_rotate_2"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_angle: 90            
+    joint_range: [90, 90]        
+    joint_id: 34
+    mass: 0.00782164
+    center_of_mass: [ -0.0376634, 4.5024e-05, 0.000912382 ]
+    inertia: [
+      3.26388e-07, 1.94469e-10, -3.03929e-07,
+      1.94469e-10, 1.7564e-06, 1.77167e-11,
+      -3.03929e-07, 1.77167e-11, 1.59917e-06 ]
+    elements:
+      - *A13
+  -
+    name: "griphis_1_nail4_2_link"
+    parent: "griphis_1_roll_2_link"
+    translation: [ -0.057, -0.015, 0 ]
+    joint_name: "griphis_1_nail4_rotate_2"
+    joint_type: revolute
+    joint_axis: [ 0, 0, 1 ]
+    joint_angle: 90            
+    joint_range: [90, 90]        
+    joint_id: 35
+    mass: 0.0078313
+    center_of_mass: [ -0.0376199, -0.000916238, -0.000157293 ]
+    inertia: [
+      3.26491e-07, 3.03989e-07, 4.37078e-10,
+      3.03989e-07, 1.60061e-06, -2.94387e-11,
+      4.37078e-10, -2.94387e-11, 1.75778e-06 ]
+    elements:
+      - *A14
+  -
+    name: "griphis_1_nail-cp2"
+    parent: "griphis_1_roll_2_link"
+    translation: [ -0.1417, -0.000318198, -0.000318198 ]
+    rotation: [ -0.57735, -0.57735, 0.57735, 120 ]
+    joint_name: "griphis_1_nail-cp2"
+    joint_type: fixed
+    mass: 0.00115854
+    center_of_mass: [ 0.000615813, -0.000615813, -0.0658092 ]
+    inertia: [
+      1.05682e-07, -1.57646e-09, -7.53304e-11,
+      -1.57646e-09, 1.05682e-07, 7.53304e-11,
+      -7.53304e-11, 7.53304e-11, 2.10813e-07 ]
+    elements:
+      - *A15
+  -
+    name: "griphis_1_gripper-cp2"
+    parent: "griphis_1_roll_2_link"
+    translation: [ -0.0767, -0.000318198, -0.000318198 ]
+    rotation: [ -0.57735, 0.57735, -0.57735, 120 ]
+    joint_name: "griphis_1_gripper-cp2"
+    joint_type: fixed
+    mass: 0.0105278
+    center_of_mass: [ 0.000249015, -0.00102239, 0.0133818 ]
+    inertia: [
+      2.49427e-06, 4.5301e-08, 6.75737e-08,
+      4.5301e-08, 2.7004e-06, 2.88247e-07,
+      6.75737e-08, 2.88247e-07, 2.67368e-06 ]
+    elements:
+      - *A16
+  -
+    name: "griphis_1_nailring2-cp1"
+    parent: "griphis_1_roll_2_link"
+    translation: [ -0.0285999, 0, 0.033 ]
+    rotation: [ 1.32557e-07, -1, -6.72257e-15, 180 ]
+    joint_name: "griphis_1_nailring2-cp1"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, 9.14134e-10,
+      4.0832e-11, 1.88948e-06, -1.81576e-12,
+      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A17
+  -
+    name: "griphis_1_nailring2-cp2"
+    parent: "griphis_1_roll_2_link"
+    translation: [ -0.0285999, -0.033, 0 ]
+    rotation: [ 1.14236e-15, 0.707107, 0.707107, 180 ]
+    joint_name: "griphis_1_nailring2-cp2"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, 9.14134e-10,
+      4.0832e-11, 1.88948e-06, -1.81576e-12,
+      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A18
+  -
+    name: "griphis_1_nailring2-cp3"
+    parent: "griphis_1_roll_2_link"
+    translation: [ -0.0284001, 0, -0.033 ]
+    rotation: [ 0, 0, 1, 180 ]
+    joint_name: "griphis_1_nailring2-cp3"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, -9.14134e-10,
+      4.0832e-11, 1.88948e-06, 1.81576e-12,
+      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A19
+  -
+    name: "griphis_1_nailring2-cp4"
+    parent: "griphis_1_roll_2_link"
+    translation: [ -0.0286001, 0.033, 0 ]
+    rotation: [ -1.14236e-15, -0.707107, 0.707107, 180 ]
+    joint_name: "griphis_1_nailring2-cp4"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, -9.14134e-10,
+      4.0832e-11, 1.88948e-06, 1.81576e-12,
+      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A20
+  -
+    name: "griphis_1_worm_1_link"
+    parent: "griphis_1_roll_1_link"
+    translation: [ -0.000318198, 0.000318198, -0.0297 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_1_worm_rotate_1"
+    joint_type: fixed
+    joint_axis: [ 1, 0, 0 ]
+    joint_id: 22
+    max_joint_velocity: 572.958
+    max_joint_effort: 15
+    mass: 0.00387258
+    center_of_mass: [ 0.0068039, 1.29536e-05, 5.52986e-05 ]
+    inertia: [
+      2.06265e-07, 1.13917e-09, -8.28881e-10,
+      1.13917e-09, 1.71137e-07, 4.18405e-11,
+      -8.28881e-10, 4.18405e-11, 1.71297e-07 ]
+    elements:
+      - *A21
+  -
+    name: "griphis_1_nail1_1_link"
+    parent: "griphis_1_roll_1_link"
+    translation: [ -0.000318198, -0.0146818, -0.0197 ]
+    rotation: [ 0.57735, -0.57735, 0.57735, 120 ]
+    joint_name: "griphis_1_nail1_rotate_1"
+    joint_type: fixed
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 23
+    mass: 0.00785452
+    center_of_mass: [ 0.0375116, -4.52381e-05, 0.000927613 ]
+    inertia: [
+      3.26793e-07, 2.23312e-10, 3.04392e-07,
+      2.23312e-10, 1.76175e-06, -8.72037e-12,
+      3.04392e-07, -8.72037e-12, 1.60468e-06 ]
+    elements:
+      - *A22
+  -
+    name: "griphis_1_nail2_1_link"
+    parent: "griphis_1_roll_1_link"
+    translation: [ -0.0153182, 0.000318198, -0.0197 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_1_nail2_rotate_1"
+    joint_type: fixed
+    joint_axis: [ 0, 0, -1 ]
+    joint_id: 24
+    mass: 0.00783921
+    center_of_mass: [ 0.0375922, -0.000920668, -5.0125e-05 ]
+    inertia: [
+      3.26764e-07, -3.04084e-07, 3.01596e-10,
+      -3.04084e-07, 1.60307e-06, -3.50229e-11,
+      3.01596e-10, -3.50229e-11, 1.76008e-06 ]
+    elements:
+      - *A23
+  -
+    name: "griphis_1_nail3_1_link"
+    parent: "griphis_1_roll_1_link"
+    translation: [ -0.000318198, 0.0153182, -0.0197 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_1_nail3_rotate_1"
+    joint_type: fixed
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 25
+    mass: 0.00782164
+    center_of_mass: [ 0.0376634, -4.5024e-05, 0.000912382 ]
+    inertia: [
+      3.26388e-07, 1.94469e-10, 3.03929e-07,
+      1.94469e-10, 1.7564e-06, -1.77167e-11,
+      3.03929e-07, -1.77167e-11, 1.59917e-06 ]
+    elements:
+      - *A24
+  -
+    name: "griphis_1_nail4_1_link"
+    parent: "griphis_1_roll_1_link"
+    translation: [ 0.0146818, 0.000318198, -0.0197 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_1_nail4_rotate_1"
+    joint_type: fixed
+    joint_axis: [ 0, 0, 1 ]
+    joint_id: 26
+    mass: 0.0078313
+    center_of_mass: [ 0.0376199, 0.000916238, 4.27066e-05 ]
+    inertia: [
+      3.26491e-07, 3.03989e-07, -4.37078e-10,
+      3.03989e-07, 1.60061e-06, 2.94387e-11,
+      -4.37078e-10, 2.94387e-11, 1.75778e-06 ]
+    elements:
+      - *A25
+  -
+    name: "griphis_1_nail-cp1"
+    parent: "griphis_1_roll_1_link"
+    translation: [ -0.000636396, 0.00021, 0.065 ]
+    rotation: [ 1.88738e-15, -3.2474e-15, -1, 180 ]
+    joint_name: "griphis_1_nail-cp1"
+    joint_type: fixed
+    mass: 0.00115854
+    center_of_mass: [ -2.05827e-05, -0.000405813, -0.0658092 ]
+    inertia: [
+      1.05682e-07, -1.57646e-09, -7.53304e-11,
+      -1.57646e-09, 1.05682e-07, 7.53304e-11,
+      -7.53304e-11, 7.53304e-11, 2.10813e-07 ]
+    elements:
+      - *A26
+  -
+    name: "griphis_1_nailring1-cp1"
+    parent: "griphis_1_roll_1_link"
+    translation: [ -0.000318198, 0.0333182, -0.0481001 ]
+    rotation: [ 0.57735, -0.57735, 0.57735, 120 ]
+    joint_name: "griphis_1_nailring1-cp1"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, 9.14134e-10,
+      4.0832e-11, 1.88948e-06, -1.81576e-12,
+      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A27
+  -
+    name: "griphis_1_nailring1-cp2"
+    parent: "griphis_1_roll_1_link"
+    translation: [ 0.0326818, 0.000318198, -0.0481001 ]
+    rotation: [ -2.82274e-14, -1, -2.82274e-14, 90 ]
+    joint_name: "griphis_1_nailring1-cp2"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, 9.14134e-10,
+      4.0832e-11, 1.88948e-06, -1.81576e-12,
+      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A28
+  -
+    name: "griphis_1_nailring1-cp3"
+    parent: "griphis_1_roll_1_link"
+    translation: [ -0.000318198, -0.0326818, -0.0482999 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_1_nailring1-cp3"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, -9.14134e-10,
+      4.0832e-11, 1.88948e-06, 1.81576e-12,
+      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A29
+  -
+    name: "griphis_1_nailring1-cp4"
+    parent: "griphis_1_roll_1_link"
+    translation: [ -0.0333182, 0.000318198, -0.0480999 ]
+    rotation: [ 0.707107, -2.23386e-14, 0.707107, 180 ]
+    joint_name: "griphis_1_nailring1-cp4"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, -9.14134e-10,
+      4.0832e-11, 1.88948e-06, 1.81576e-12,
+      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A30
+  -
+    name: "griphis_0_nailring1-cp3"
+    parent: "griphis_0_roll_1_link"
+    translation: [ -0.000318198, -0.0326818, -0.0482999 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_0_nailring1-cp3"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, -9.14134e-10,
+      4.0832e-11, 1.88948e-06, 1.81576e-12,
+      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A29
+  -
+    name: "griphis_0_nailring1-cp4"
+    parent: "griphis_0_roll_1_link"
+    translation: [ -0.0333182, 0.000318198, -0.0480999 ]
+    rotation: [ 0.707107, -2.23386e-14, 0.707107, 180 ]
+    joint_name: "griphis_0_nailring1-cp4"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, -9.14134e-10,
+      4.0832e-11, 1.88948e-06, 1.81576e-12,
+      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A30
+  -
+    name: "griphis_2_gripper-cp1"
+    parent: "griphis_0_nailring1-cp4"
+    translation: [ 0, 0, -0.07 ]
+    rotation: [ 0, 0, 1, 179.909 ]
+    joint_name: "griphis_2_gripper-cp1_to_griphis_0_nailring1-cp4_joint"
+    joint_type: fixed
+    mass: 0.0105278
+    center_of_mass: [ -0.000249015, -0.00102239, -0.0133818 ]
+    inertia: [
+      2.49427e-06, -4.5301e-08, 6.75737e-08,
+      -4.5301e-08, 2.7004e-06, -2.88247e-07,
+      6.75737e-08, -2.88247e-07, 2.67368e-06 ]
+    elements:
+      - *A0
+  -
+    name: "griphis_2_roll_1_link"
+    parent: "griphis_2_gripper-cp1"
+    joint_name: "griphis_2_gripper-cp1"
+    joint_type: fixed
+    mass: 0.0617239
+    center_of_mass: [ 0.0304848, -0.000533684, -0.000138764 ]
+    inertia: [
+      1.72113e-05, -2.34655e-07, 1.72187e-07,
+      -2.34655e-07, 1.09105e-05, 3.906e-08,
+      1.72187e-07, 3.906e-08, 1.62403e-05 ]
+    elements:
+      -
+        type: Transform
+        rotation: [ -0.57735026919, -0.57735026919, -0.57735026919, 120 ]
+        translation: [ -0.000318198051527, 0.000318198051528, -0.0767 ]
+        elements:
+          - *A1
+  -
+    name: "griphis_2_yaw_1_link"
+    parent: "griphis_2_roll_1_link"
+    translation: [ -0.000318198, 0.000318198, -0.0767 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_2_roll_1"
+    joint_type: revolute
+    joint_axis: [ 1, -0, -0 ]
+    joint_id: 39
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0544536
+    center_of_mass: [ 0.00934924, -1.17001e-10, -0.0065657 ]
+    inertia: [
+      6.16082e-06, -1.48643e-08, 3.66332e-08,
+      -1.48643e-08, 7.36783e-06, -1.48634e-08,
+      3.66332e-08, -1.48634e-08, 7.24406e-06 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.028, -0, 0.0175 ]
+        elements:
+          - *A2
+  -
+    name: "griphis_2_pitch_1_link"
+    parent: "griphis_2_yaw_1_link"
+    translation: [ -0.028, -0, 0.0175 ]
+    joint_name: "griphis_2_yaw_1"
+    joint_type: revolute
+    joint_axis: [ -0, -0, 1 ]
+    joint_id: 38
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0105178
+    center_of_mass: [ 0.0191893, -0.0172316, -0.00342857 ]
+    inertia: [
+      5.84801e-07, 3.57322e-09, 8.81524e-08,
+      3.57322e-09, 1.04603e-06, -1.51991e-13,
+      8.81524e-08, -1.51991e-13, 9.82965e-07 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.042, 0.0175, -0.0175 ]
+        elements:
+          - *A3
+  -
+    name: "griphis_2_mid_pitch_1_link"
+    parent: "griphis_2_pitch_1_link"
+    translation: [ -0.042, 0.0175, -0.0175 ]
+    joint_name: "griphis_2_pitch_1"
+    joint_type: revolute
+    joint_axis: [ -0, -1, -0 ]
+    joint_angle: 90
+    joint_id: 37
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0769353
+    center_of_mass: [ 0.0327517, 0.0322634, 0.000309411 ]
+    inertia: [
+      1.72123e-05, 1.01497e-08, -9.64331e-08,
+      1.01497e-08, 1.36641e-05, 5.60815e-07,
+      -9.64331e-08, 5.60815e-07, 1.63212e-05 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.064, -0.0351, -0 ]
+        elements:
+          - *A4
+  -
+    name: "griphis_2_base_link"
+    parent: "griphis_2_mid_pitch_1_link"
+    translation: [ -0.064, -0.0351, -0 ]
+    joint_name: "griphis_2_mid_pitch_1"
+    joint_type: revolute
+    joint_axis: [ -0, -1, -0 ]
+    joint_id: 36
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0797463
+    center_of_mass: [ -0.000102643, 3.31727e-05, -0.00495518 ]
+    inertia: [
+      8.57012e-06, 1.08293e-08, -5.94276e-09,
+      1.08293e-08, 1.05159e-05, 1.10583e-08,
+      -5.94276e-09, 1.10583e-08, 1.0887e-05 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.0149, 0.0176, 0.011 ]
+        elements:
+          - *A5
+  -
+    name: "griphis_2_mid_pitch_2_link"
+    parent: "griphis_2_base_link"
+    translation: [ -0.0299, 0.0352, 0.00021 ]
+    joint_name: "griphis_2_mid_pitch_2"
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 45
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0769502
+    center_of_mass: [ -0.0327474, -0.0322606, 0.000309352 ]
+    inertia: [
+      1.72131e-05, 1.01486e-08, 9.64339e-08,
+      1.01486e-08, 1.36643e-05, -5.60813e-07,
+      9.64339e-08, -5.60813e-07, 1.63207e-05 ]
+    elements:
+      - *A6
+  -
+    name: "griphis_2_pitch_2_link"
+    parent: "griphis_2_mid_pitch_2_link"
+    translation: [ -0.064, -0.0351, 0 ]
+    joint_name: "griphis_2_pitch_2"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 46
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0105178
+    center_of_mass: [ -0.0191893, 0.0172316, -0.00342857 ]
+    inertia: [
+      5.84801e-07, 3.57322e-09, -8.81524e-08,
+      3.57322e-09, 1.04603e-06, 1.51991e-13,
+      -8.81524e-08, 1.51991e-13, 9.82965e-07 ]
+    elements:
+      - *A7
+  -
+    name: "griphis_2_yaw_2_link"
+    parent: "griphis_2_pitch_2_link"
+    translation: [ -0.042, 0.0175, 0.0175 ]
+    joint_name: "griphis_2_yaw_2"
+    joint_type: revolute
+    joint_axis: [ 0, 0, -1 ]
+    joint_id: 47
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0544537
+    center_of_mass: [ -0.00934924, -1.20739e-09, -0.0065657 ]
+    inertia: [
+      6.16083e-06, -1.48631e-08, -3.66334e-08,
+      -1.48631e-08, 7.36783e-06, 1.48635e-08,
+      -3.66334e-08, 1.48635e-08, 7.24407e-06 ]
+    elements:
+      - *A8
+  -
+    name: "griphis_2_roll_2_link"
+    parent: "griphis_2_yaw_2_link"
+    translation: [ -0.028, 0, -0.0175 ]
+    joint_name: "griphis_2_roll_2"
+    joint_type: revolute
+    joint_axis: [ -1, 0, 0 ]
+    joint_id: 48
+    max_joint_velocity: 572.958
+    max_joint_effort: 3
+    mass: 0.0617239
+    center_of_mass: [ -0.0304848, 0.000533684, -0.000138764 ]
+    inertia: [
+      1.72113e-05, -2.34655e-07, -1.72187e-07,
+      -2.34655e-07, 1.09105e-05, -3.906e-08,
+      -1.72187e-07, -3.906e-08, 1.62403e-05 ]
+    elements:
+      - *A9
+  -
+    name: "griphis_2_worm_2_link"
+    parent: "griphis_2_roll_2_link"
+    translation: [ -0.047, 0, 0 ]
+    joint_name: "griphis_2_worm_rotate_2"
+    joint_type: fixed
+    joint_axis: [ 0.737217, 0, 0.675656 ]
+    joint_id: 49
+    max_joint_velocity: 572.958
+    max_joint_effort: 15
+    mass: 0.00387258
+    center_of_mass: [ -0.0068039, 5.66708e-05, 3.76181e-06 ]
+    inertia: [
+      2.06265e-07, 6.32002e-10, -1.2591e-09,
+      6.32002e-10, 1.71306e-07, 1.39153e-11,
+      -1.2591e-09, 1.39153e-11, 1.71128e-07 ]
+    elements:
+      - *A10
+  -
+    name: "griphis_2_nail1_2_link"
+    parent: "griphis_2_roll_2_link"
+    translation: [ -0.057, 0, -0.015 ]
+    joint_name: "griphis_2_nail1_rotate_2"
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_angle: 90            
+    joint_range: [90, 90]        
+    joint_id: 50
+    mass: 0.00785452
+    center_of_mass: [ -0.0375116, 0.000154762, -0.000927613 ]
+    inertia: [
+      3.26793e-07, -2.23312e-10, 3.04392e-07,
+      -2.23312e-10, 1.76175e-06, 8.72037e-12,
+      3.04392e-07, 8.72037e-12, 1.60468e-06 ]
+    elements:
+      - *A11
+  -
+    name: "griphis_2_nail2_2_link"
+    parent: "griphis_2_roll_2_link"
+    translation: [ -0.057, 0.015, 0 ]
+    joint_name: "griphis_2_nail2_rotate_2"
+    joint_type: revolute
+    joint_axis: [ 0, 0, -1 ]
+    joint_angle: 90            
+    joint_range: [90, 90]        
+    joint_id: 51
+    mass: 0.00783921
+    center_of_mass: [ -0.0375922, 0.000920668, 0.000149875 ]
+    inertia: [
+      3.26764e-07, -3.04084e-07, -3.01596e-10,
+      -3.04084e-07, 1.60307e-06, 3.50229e-11,
+      -3.01596e-10, 3.50229e-11, 1.76008e-06 ]
+    elements:
+      - *A12
+  -
+    name: "griphis_2_nail3_2_link"
+    parent: "griphis_2_roll_2_link"
+    translation: [ -0.057, 0, 0.015 ]
+    joint_name: "griphis_2_nail3_rotate_2"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_angle: 90            
+    joint_range: [90, 90]        
+    joint_id: 52
+    mass: 0.00782164
+    center_of_mass: [ -0.0376634, 4.5024e-05, 0.000912382 ]
+    inertia: [
+      3.26388e-07, 1.94469e-10, -3.03929e-07,
+      1.94469e-10, 1.7564e-06, 1.77167e-11,
+      -3.03929e-07, 1.77167e-11, 1.59917e-06 ]
+    elements:
+      - *A13
+  -
+    name: "griphis_2_nail4_2_link"
+    parent: "griphis_2_roll_2_link"
+    translation: [ -0.057, -0.015, 0 ]
+    joint_name: "griphis_2_nail4_rotate_2"
+    joint_type: revolute
+    joint_axis: [ 0, 0, 1 ]
+    joint_angle: 90            
+    joint_range: [90, 90]        
+    joint_id: 53
+    mass: 0.0078313
+    center_of_mass: [ -0.0376199, -0.000916238, -0.000157293 ]
+    inertia: [
+      3.26491e-07, 3.03989e-07, 4.37078e-10,
+      3.03989e-07, 1.60061e-06, -2.94387e-11,
+      4.37078e-10, -2.94387e-11, 1.75778e-06 ]
+    elements:
+      - *A14
+  -
+    name: "griphis_2_nail-cp2"
+    parent: "griphis_2_roll_2_link"
+    translation: [ -0.1417, -0.000318198, -0.000318198 ]
+    rotation: [ -0.57735, -0.57735, 0.57735, 120 ]
+    joint_name: "griphis_2_nail-cp2"
+    joint_type: fixed
+    mass: 0.00115854
+    center_of_mass: [ 0.000615813, -0.000615813, -0.0658092 ]
+    inertia: [
+      1.05682e-07, -1.57646e-09, -7.53304e-11,
+      -1.57646e-09, 1.05682e-07, 7.53304e-11,
+      -7.53304e-11, 7.53304e-11, 2.10813e-07 ]
+    elements:
+      - *A15
+  -
+    name: "griphis_2_gripper-cp2"
+    parent: "griphis_2_roll_2_link"
+    translation: [ -0.0767, -0.000318198, -0.000318198 ]
+    rotation: [ -0.57735, 0.57735, -0.57735, 120 ]
+    joint_name: "griphis_2_gripper-cp2"
+    joint_type: fixed
+    mass: 0.0105278
+    center_of_mass: [ 0.000249015, -0.00102239, 0.0133818 ]
+    inertia: [
+      2.49427e-06, 4.5301e-08, 6.75737e-08,
+      4.5301e-08, 2.7004e-06, 2.88247e-07,
+      6.75737e-08, 2.88247e-07, 2.67368e-06 ]
+    elements:
+      - *A16
+  -
+    name: "griphis_2_nailring2-cp1"
+    parent: "griphis_2_roll_2_link"
+    translation: [ -0.0285999, 0, 0.033 ]
+    rotation: [ 1.32557e-07, -1, -6.72257e-15, 180 ]
+    joint_name: "griphis_2_nailring2-cp1"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, 9.14134e-10,
+      4.0832e-11, 1.88948e-06, -1.81576e-12,
+      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A17
+  -
+    name: "griphis_2_nailring2-cp2"
+    parent: "griphis_2_roll_2_link"
+    translation: [ -0.0285999, -0.033, 0 ]
+    rotation: [ 1.14236e-15, 0.707107, 0.707107, 180 ]
+    joint_name: "griphis_2_nailring2-cp2"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, 9.14134e-10,
+      4.0832e-11, 1.88948e-06, -1.81576e-12,
+      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A18
+  -
+    name: "griphis_2_nailring2-cp3"
+    parent: "griphis_2_roll_2_link"
+    translation: [ -0.0284001, 0, -0.033 ]
+    rotation: [ 0, 0, 1, 180 ]
+    joint_name: "griphis_2_nailring2-cp3"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, -9.14134e-10,
+      4.0832e-11, 1.88948e-06, 1.81576e-12,
+      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A19
+  -
+    name: "griphis_2_nailring2-cp4"
+    parent: "griphis_2_roll_2_link"
+    translation: [ -0.0286001, 0.033, 0 ]
+    rotation: [ -1.14236e-15, -0.707107, 0.707107, 180 ]
+    joint_name: "griphis_2_nailring2-cp4"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, -9.14134e-10,
+      4.0832e-11, 1.88948e-06, 1.81576e-12,
+      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A20
+  -
+    name: "griphis_2_worm_1_link"
+    parent: "griphis_2_roll_1_link"
+    translation: [ -0.000318198, 0.000318198, -0.0297 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_2_worm_rotate_1"
+    joint_type: fixed
+    joint_axis: [ 1, 0, 0 ]
+    joint_id: 40
+    max_joint_velocity: 572.958
+    max_joint_effort: 15
+    mass: 0.00387258
+    center_of_mass: [ 0.0068039, 1.29536e-05, 5.52986e-05 ]
+    inertia: [
+      2.06265e-07, 1.13917e-09, -8.28881e-10,
+      1.13917e-09, 1.71137e-07, 4.18405e-11,
+      -8.28881e-10, 4.18405e-11, 1.71297e-07 ]
+    elements:
+      - *A21
+  -
+    name: "griphis_2_nail1_1_link"
+    parent: "griphis_2_roll_1_link"
+    translation: [ -0.000318198, -0.0146818, -0.0197 ]
+    rotation: [ 0.57735, -0.57735, 0.57735, 120 ]
+    joint_name: "griphis_2_nail1_rotate_1"
+    joint_type: fixed
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 41
+    mass: 0.00785452
+    center_of_mass: [ 0.0375116, -4.52381e-05, 0.000927613 ]
+    inertia: [
+      3.26793e-07, 2.23312e-10, 3.04392e-07,
+      2.23312e-10, 1.76175e-06, -8.72037e-12,
+      3.04392e-07, -8.72037e-12, 1.60468e-06 ]
+    elements:
+      - *A22
+  -
+    name: "griphis_2_nail2_1_link"
+    parent: "griphis_2_roll_1_link"
+    translation: [ -0.0153182, 0.000318198, -0.0197 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_2_nail2_rotate_1"
+    joint_type: fixed
+    joint_axis: [ 0, 0, -1 ]
+    joint_id: 42
+    mass: 0.00783921
+    center_of_mass: [ 0.0375922, -0.000920668, -5.0125e-05 ]
+    inertia: [
+      3.26764e-07, -3.04084e-07, 3.01596e-10,
+      -3.04084e-07, 1.60307e-06, -3.50229e-11,
+      3.01596e-10, -3.50229e-11, 1.76008e-06 ]
+    elements:
+      - *A23
+  -
+    name: "griphis_2_nail3_1_link"
+    parent: "griphis_2_roll_1_link"
+    translation: [ -0.000318198, 0.0153182, -0.0197 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_2_nail3_rotate_1"
+    joint_type: fixed
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 43
+    mass: 0.00782164
+    center_of_mass: [ 0.0376634, -4.5024e-05, 0.000912382 ]
+    inertia: [
+      3.26388e-07, 1.94469e-10, 3.03929e-07,
+      1.94469e-10, 1.7564e-06, -1.77167e-11,
+      3.03929e-07, -1.77167e-11, 1.59917e-06 ]
+    elements:
+      - *A24
+  -
+    name: "griphis_2_nail4_1_link"
+    parent: "griphis_2_roll_1_link"
+    translation: [ 0.0146818, 0.000318198, -0.0197 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_2_nail4_rotate_1"
+    joint_type: fixed
+    joint_axis: [ 0, 0, 1 ]
+    joint_id: 44
+    mass: 0.0078313
+    center_of_mass: [ 0.0376199, 0.000916238, 4.27066e-05 ]
+    inertia: [
+      3.26491e-07, 3.03989e-07, -4.37078e-10,
+      3.03989e-07, 1.60061e-06, 2.94387e-11,
+      -4.37078e-10, 2.94387e-11, 1.75778e-06 ]
+    elements:
+      - *A25
+  -
+    name: "griphis_2_nail-cp1"
+    parent: "griphis_2_roll_1_link"
+    translation: [ -0.000636396, 0.00021, 0.065 ]
+    rotation: [ 1.88738e-15, -3.2474e-15, -1, 180 ]
+    joint_name: "griphis_2_nail-cp1"
+    joint_type: fixed
+    mass: 0.00115854
+    center_of_mass: [ -2.05827e-05, -0.000405813, -0.0658092 ]
+    inertia: [
+      1.05682e-07, -1.57646e-09, -7.53304e-11,
+      -1.57646e-09, 1.05682e-07, 7.53304e-11,
+      -7.53304e-11, 7.53304e-11, 2.10813e-07 ]
+    elements:
+      - *A26
+  -
+    name: "griphis_2_nailring1-cp1"
+    parent: "griphis_2_roll_1_link"
+    translation: [ -0.000318198, 0.0333182, -0.0481001 ]
+    rotation: [ 0.57735, -0.57735, 0.57735, 120 ]
+    joint_name: "griphis_2_nailring1-cp1"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, 9.14134e-10,
+      4.0832e-11, 1.88948e-06, -1.81576e-12,
+      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A27
+  -
+    name: "griphis_2_nailring1-cp2"
+    parent: "griphis_2_roll_1_link"
+    translation: [ 0.0326818, 0.000318198, -0.0481001 ]
+    rotation: [ -2.82274e-14, -1, -2.82274e-14, 90 ]
+    joint_name: "griphis_2_nailring1-cp2"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, 9.14134e-10,
+      4.0832e-11, 1.88948e-06, -1.81576e-12,
+      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A28
+  -
+    name: "griphis_2_nailring1-cp3"
+    parent: "griphis_2_roll_1_link"
+    translation: [ -0.000318198, -0.0326818, -0.0482999 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
+    joint_name: "griphis_2_nailring1-cp3"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, -9.14134e-10,
+      4.0832e-11, 1.88948e-06, 1.81576e-12,
+      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A29
+  -
+    name: "griphis_2_nailring1-cp4"
+    parent: "griphis_2_roll_1_link"
+    translation: [ -0.0333182, 0.000318198, -0.0480999 ]
+    rotation: [ 0.707107, -2.23386e-14, 0.707107, 180 ]
+    joint_name: "griphis_2_nailring1-cp4"
+    joint_type: fixed
+    mass: 0.00888435
+    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
+    inertia: [
+      1.85849e-06, 4.0832e-11, -9.14134e-10,
+      4.0832e-11, 1.88948e-06, 1.81576e-12,
+      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
+    elements:
+      - *A30

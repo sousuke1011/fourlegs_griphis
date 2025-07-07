@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<robot name="r8_tycoon_assem" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Root of the module chain -->
+  <link name="base_link"/>
+
+
+  <!-- Griphis module -->
+  <xacro:include filename="$(find griphis_xacro_stl)/urdf/griphis_xacro_stl_gripper1_modularized.xacro" />
+
+  <xacro:griphis_xacro_stl
+    prefix="griphis_0_"
+    parent_link="base_link">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:griphis_xacro_stl>
+
+  <xacro:griphis_xacro_stl
+    prefix="griphis_1_"
+    parent_link="griphis_0_nailring1-cp1">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:griphis_xacro_stl>
+
+  <xacro:griphis_xacro_stl
+    prefix="griphis_2_"
+    parent_link="griphis_1_nailring2-cp3">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:griphis_xacro_stl>
+
+  <xacro:griphis_xacro_stl
+    prefix="griphis_3_"
+    parent_link="griphis_2_nailring1-cp4">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:griphis_xacro_stl>
+
+</robot>

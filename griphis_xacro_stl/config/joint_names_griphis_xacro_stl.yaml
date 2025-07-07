@@ -1,0 +1,1 @@
+controller_joint_names: ['', 'mid_pitch_1', 'pitch_1', 'yaw_1', 'roll_1', 'worm_rotate_1', 'nail1_rotate_1', 'nail2_rotate_1', 'nail3_rotate_1', 'nail4_rotate_1', 'mid_pitch_2', 'pitch_2', 'yaw_2', 'roll_2', 'worm_rotate_2', 'nail1_rotate_2', 'nail2_rotate_2', 'nail3_rotate_2', 'nail4_rotate_2', ]
