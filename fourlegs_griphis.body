@@ -28,15 +28,10 @@ links:
       -4.5301e-08, 2.7004e-06, -2.88247e-07,
       6.75737e-08, -2.88247e-07, 2.67368e-06 ]
     elements: &A0
-      - type: Visual
-        resource:
-          uri: "griphis_xacro_stl/meshes/gripper-cp1.STL"
-      - type: Collision
-        elements:
-          -
-              type: Shape
-              translation: [0.0, 0.0, -0.025]
-              geometry: { type: Box, size: [0.015, 0.015, 0.025] }
+      -
+        type: Shape
+        translation: [0.0, 0.0, -0.025]
+        geometry: { type: Box, size: [0.015, 0.015, 0.025] }
   -
     name: "griphis_0_roll_1_link"
     parent: "griphis_0_gripper-cp1"
@@ -56,9 +51,10 @@ links:
         elements:
           - &A1
             type: Shape
+            translation: [0.024, 0.0, 0.0]            
             geometry:
-              type: Resource
-              uri: "griphis_xacro_stl/meshes/roll_1_link.STL"
+              type: Box
+              size: [0.04, 0.056, 0.056]
   -
     name: "griphis_0_yaw_1_link"
     parent: "griphis_0_roll_1_link"
@@ -80,15 +76,16 @@ links:
       -
         type: Transform
         translation: [ -0.028, -0, 0.0175 ]
-        elements:
-          - &A2
+        elements: &A2
+          -
             type: Shape
-            appearance:
-              material:
-                diffuse: [ 0.180392, 0.180392, 0.180392 ]
-            geometry:
-              type: Resource
-              uri: "griphis_xacro_stl/meshes/yaw_1_link.STL"
+            translation: [-0.008, 0.0, 0.02]
+            geometry: { type: Box, size: [0.04, 0.03, 0.03] }
+          -
+            type: Shape
+            translation: [0.0, 0.0, -0.023]
+            geometry: { type: Box, size: [0.03, 0.03, 0.04] }
+
   -
     name: "griphis_0_pitch_1_link"
     parent: "griphis_0_yaw_1_link"
@@ -139,15 +136,10 @@ links:
         type: Transform
         translation: [ -0.064, -0.0351, -0 ]
         elements: &A4
-          - type: Visual
-            resource:
-              uri: "griphis_xacro_stl/meshes/mid_pitch_1_link.STL"
-          - type: Collision
-            elements:
-              -
-                type: Shape
-                translation: [0.05, 0.018, 0.0]
-                geometry: { type: Box, size: [0.035, 0.025, 0.025] }
+          -
+            type: Shape
+            translation: [0.05, 0.018, 0.0]
+            geometry: { type: Box, size: [0.035, 0.025, 0.025] }
   -
     name: "griphis_0_base_link"
     parent: "griphis_0_mid_pitch_1_link"
@@ -169,20 +161,14 @@ links:
         type: Transform
         translation: [ -0.0149, 0.0176, 0.011 ]
         elements: &A5
-          - type: Visual
-            resource:
-              uri: "griphis_xacro_stl/meshes/base_link.STL"
-          - type: Collision
-            elements:
-              -
-                type: Shape
-                translation: [0.0, 0.0, -0.01]
-                geometry: { type: Box, size: [0.08, 0.027, 0.03] }
-              -
-                type: Shape
-                translation: [0.0, 0.0, 0.012]
-                geometry: { type: Box, size: [0.02, 0.02, 0.015] }
-                
+          -
+            type: Shape
+            translation: [0.0, 0.0, -0.01]
+            geometry: { type: Box, size: [0.08, 0.027, 0.03] }
+          -
+            type: Shape
+            translation: [0.0, 0.0, 0.012]
+            geometry: { type: Box, size: [0.02, 0.02, 0.015] }
   -
     name: "griphis_0_mid_pitch_2_link"
     parent: "griphis_0_base_link"
@@ -200,15 +186,10 @@ links:
       1.01486e-08, 1.36643e-05, -5.60813e-07,
       9.64339e-08, -5.60813e-07, 1.63207e-05 ]
     elements: &A6
-      - type: Visual
-        resource:
-          uri: "griphis_xacro_stl/meshes/mid_pitch_2_link.STL"
-      - type: Collision
-        elements:
-          -
-            type: Shape
-            translation: [-0.05, -0.018, 0.0]
-            geometry: { type: Box, size: [0.035, 0.025, 0.025] }
+      -
+        type: Shape
+        translation: [-0.05, -0.018, 0.0]
+        geometry: { type: Box, size: [0.035, 0.025, 0.025] }
   -
     name: "griphis_0_pitch_2_link"
     parent: "griphis_0_mid_pitch_2_link"
@@ -250,15 +231,15 @@ links:
       6.16083e-06, -1.48631e-08, -3.66334e-08,
       -1.48631e-08, 7.36783e-06, 1.48635e-08,
       -3.66334e-08, 1.48635e-08, 7.24407e-06 ]
-    elements:
-      - &A8
+    elements: &A8
+      -
         type: Shape
-        appearance:
-          material:
-            diffuse: [ 0.180392, 0.180392, 0.180392 ]
-        geometry:
-          type: Resource
-          uri: "griphis_xacro_stl/meshes/yaw_2_link.STL"
+        translation: [-0.008, 0.0, 0.02]
+        geometry: { type: Box, size: [0.04, 0.03, 0.03] }
+      -
+        type: Shape
+        translation: [0.0, 0.0, -0.023]
+        geometry: { type: Box, size: [0.03, 0.03, 0.04] }
   -
     name: "griphis_0_roll_2_link"
     parent: "griphis_0_yaw_2_link"
@@ -278,9 +259,10 @@ links:
     elements:
       - &A9
         type: Shape
+        translation: [-0.024, 0.0, 0.0]            
         geometry:
-          type: Resource
-          uri: "griphis_xacro_stl/meshes/roll_2_link.STL"
+          type: Box
+          size: [0.04, 0.056, 0.056]
   -
     name: "griphis_0_nail1_2_link"
     parent: "griphis_0_roll_2_link"
@@ -424,34 +406,10 @@ links:
       4.5301e-08, 2.7004e-06, 2.88247e-07,
       6.75737e-08, 2.88247e-07, 2.67368e-06 ]
     elements: &A16
-      - type: Visual
-        resource:
-          uri: "griphis_xacro_stl/meshes/gripper-cp2.STL"
-      - type: Collision
-        elements:
-          -
-              type: Shape
-              translation: [0.0, 0.0, 0.025]
-              geometry: { type: Box, size: [0.015, 0.015, 0.025] }
-  -
-    name: "griphis_0_nailring2-cp1"
-    parent: "griphis_0_roll_2_link"
-    translation: [ -0.0285999, 0, 0.033 ]
-    rotation: [ 1.32557e-07, -1, -6.72257e-15, 180 ]
-    joint_name: "griphis_0_nailring2-cp1"
-    joint_type: fixed
-    mass: 0.00888435
-    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
-    inertia: [
-      1.85849e-06, 4.0832e-11, 9.14134e-10,
-      4.0832e-11, 1.88948e-06, -1.81576e-12,
-      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
-    elements:
-      - &A17
+      -
         type: Shape
-        geometry:
-          type: Resource
-          uri: "griphis_xacro_stl/meshes/nailring2-cp1.STL"
+        translation: [0.0, 0.0, 0.025]
+        geometry: { type: Box, size: [0.015, 0.015, 0.025] }
   -
     name: "griphis_0_nailring2-cp2"
     parent: "griphis_0_roll_2_link"
@@ -523,8 +481,7 @@ links:
       -
         type: Transform
         translation: [ -0.028, -0, 0.0175 ]
-        elements:
-          - *A2
+        elements: *A2
   -
     name: "griphis_3_pitch_1_link"
     parent: "griphis_3_yaw_1_link"
@@ -641,8 +598,7 @@ links:
       6.16083e-06, -1.48631e-08, -3.66334e-08,
       -1.48631e-08, 7.36783e-06, 1.48635e-08,
       -3.66334e-08, 1.48635e-08, 7.24407e-06 ]
-    elements:
-      - *A8
+    elements: *A8
   -
     name: "griphis_3_roll_2_link"
     parent: "griphis_3_yaw_2_link"
@@ -758,21 +714,6 @@ links:
       6.75737e-08, 2.88247e-07, 2.67368e-06 ]
     elements: *A16
   -
-    name: "griphis_3_nailring2-cp1"
-    parent: "griphis_3_roll_2_link"
-    translation: [ -0.0285999, 0, 0.033 ]
-    rotation: [ 1.32557e-07, -1, -6.72257e-15, 180 ]
-    joint_name: "griphis_3_nailring2-cp1"
-    joint_type: fixed
-    mass: 0.00888435
-    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
-    inertia: [
-      1.85849e-06, 4.0832e-11, 9.14134e-10,
-      4.0832e-11, 1.88948e-06, -1.81576e-12,
-      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
-    elements:
-      - *A17
-  -
     name: "griphis_3_nailring2-cp2"
     parent: "griphis_3_roll_2_link"
     translation: [ -0.0285999, -0.033, 0 ]
@@ -787,25 +728,6 @@ links:
       9.14134e-10, -1.81576e-12, 3.47495e-06 ]
     elements:
       - *A18
-  -
-    name: "griphis_3_nailring2-cp3"
-    parent: "griphis_3_roll_2_link"
-    translation: [ -0.0284001, 0, -0.033 ]
-    rotation: [ 0, 0, 1, 180 ]
-    joint_name: "griphis_3_nailring2-cp3"
-    joint_type: fixed
-    mass: 0.00888435
-    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
-    inertia: [
-      1.85849e-06, 4.0832e-11, -9.14134e-10,
-      4.0832e-11, 1.88948e-06, 1.81576e-12,
-      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
-    elements:
-      - &A19
-        type: Shape
-        geometry:
-          type: Resource
-          uri: "griphis_xacro_stl/meshes/nailring2-cp3.STL"
   -
     name: "griphis_3_nailring2-cp4"
     parent: "griphis_3_roll_2_link"
@@ -949,25 +871,6 @@ links:
             translation: [0.0, 0.0, -0.065]
             geometry: { type: Box, size: [0.025, 0.025, 0.001] }
   -
-    name: "griphis_3_nailring1-cp1"
-    parent: "griphis_3_roll_1_link"
-    translation: [ -0.000318198, 0.0333182, -0.0481001 ]
-    rotation: [ 0.57735, -0.57735, 0.57735, 120 ]
-    joint_name: "griphis_3_nailring1-cp1"
-    joint_type: fixed
-    mass: 0.00888435
-    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
-    inertia: [
-      1.85849e-06, 4.0832e-11, 9.14134e-10,
-      4.0832e-11, 1.88948e-06, -1.81576e-12,
-      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
-    elements:
-      - &A27
-        type: Shape
-        geometry:
-          type: Resource
-          uri: "griphis_xacro_stl/meshes/nailring1-cp1.STL"
-  -
     name: "griphis_3_nailring1-cp2"
     parent: "griphis_3_roll_1_link"
     translation: [ 0.0326818, 0.000318198, -0.0481001 ]
@@ -987,25 +890,6 @@ links:
           type: Resource
           uri: "griphis_xacro_stl/meshes/nailring1-cp2.STL"
   -
-    name: "griphis_3_nailring1-cp3"
-    parent: "griphis_3_roll_1_link"
-    translation: [ -0.000318198, -0.0326818, -0.0482999 ]
-    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
-    joint_name: "griphis_3_nailring1-cp3"
-    joint_type: fixed
-    mass: 0.00888435
-    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
-    inertia: [
-      1.85849e-06, 4.0832e-11, -9.14134e-10,
-      4.0832e-11, 1.88948e-06, 1.81576e-12,
-      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
-    elements:
-      - &A29
-        type: Shape
-        geometry:
-          type: Resource
-          uri: "griphis_xacro_stl/meshes/nailring1-cp3.STL"
-  -
     name: "griphis_3_nailring1-cp4"
     parent: "griphis_3_roll_1_link"
     translation: [ -0.0333182, 0.000318198, -0.0480999 ]
@@ -1024,21 +908,6 @@ links:
         geometry:
           type: Resource
           uri: "griphis_xacro_stl/meshes/nailring1-cp4.STL"
-  -
-    name: "griphis_0_nailring2-cp3"
-    parent: "griphis_0_roll_2_link"
-    translation: [ -0.0284001, 0, -0.033 ]
-    rotation: [ 0, 0, 1, 180 ]
-    joint_name: "griphis_0_nailring2-cp3"
-    joint_type: fixed
-    mass: 0.00888435
-    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
-    inertia: [
-      1.85849e-06, 4.0832e-11, -9.14134e-10,
-      4.0832e-11, 1.88948e-06, 1.81576e-12,
-      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
-    elements:
-      - *A19
   -
     name: "griphis_0_nailring2-cp4"
     parent: "griphis_0_roll_2_link"
@@ -1107,8 +976,7 @@ links:
       -
         type: Transform
         translation: [ -0.028, -0, 0.0175 ]
-        elements:
-          - *A2
+        elements: *A2
   -
     name: "griphis_4_pitch_1_link"
     parent: "griphis_4_yaw_1_link"
@@ -1225,8 +1093,7 @@ links:
       6.16083e-06, -1.48631e-08, -3.66334e-08,
       -1.48631e-08, 7.36783e-06, 1.48635e-08,
       -3.66334e-08, 1.48635e-08, 7.24407e-06 ]
-    elements:
-      - *A8
+    elements: *A8
   -
     name: "griphis_4_roll_2_link"
     parent: "griphis_4_yaw_2_link"
@@ -1342,21 +1209,6 @@ links:
       6.75737e-08, 2.88247e-07, 2.67368e-06 ]
     elements: *A16
   -
-    name: "griphis_4_nailring2-cp1"
-    parent: "griphis_4_roll_2_link"
-    translation: [ -0.0285999, 0, 0.033 ]
-    rotation: [ 1.32557e-07, -1, -6.72257e-15, 180 ]
-    joint_name: "griphis_4_nailring2-cp1"
-    joint_type: fixed
-    mass: 0.00888435
-    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
-    inertia: [
-      1.85849e-06, 4.0832e-11, 9.14134e-10,
-      4.0832e-11, 1.88948e-06, -1.81576e-12,
-      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
-    elements:
-      - *A17
-  -
     name: "griphis_4_nailring2-cp2"
     parent: "griphis_4_roll_2_link"
     translation: [ -0.0285999, -0.033, 0 ]
@@ -1371,21 +1223,6 @@ links:
       9.14134e-10, -1.81576e-12, 3.47495e-06 ]
     elements:
       - *A18
-  -
-    name: "griphis_4_nailring2-cp3"
-    parent: "griphis_4_roll_2_link"
-    translation: [ -0.0284001, 0, -0.033 ]
-    rotation: [ 0, 0, 1, 180 ]
-    joint_name: "griphis_4_nailring2-cp3"
-    joint_type: fixed
-    mass: 0.00888435
-    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
-    inertia: [
-      1.85849e-06, 4.0832e-11, -9.14134e-10,
-      4.0832e-11, 1.88948e-06, 1.81576e-12,
-      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
-    elements:
-      - *A19
   -
     name: "griphis_4_nailring2-cp4"
     parent: "griphis_4_roll_2_link"
@@ -1480,21 +1317,6 @@ links:
       -7.53304e-11, 7.53304e-11, 2.10813e-07 ]
     elements: *A26
   -
-    name: "griphis_4_nailring1-cp1"
-    parent: "griphis_4_roll_1_link"
-    translation: [ -0.000318198, 0.0333182, -0.0481001 ]
-    rotation: [ 0.57735, -0.57735, 0.57735, 120 ]
-    joint_name: "griphis_4_nailring1-cp1"
-    joint_type: fixed
-    mass: 0.00888435
-    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
-    inertia: [
-      1.85849e-06, 4.0832e-11, 9.14134e-10,
-      4.0832e-11, 1.88948e-06, -1.81576e-12,
-      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
-    elements:
-      - *A27
-  -
     name: "griphis_4_nailring1-cp2"
     parent: "griphis_4_roll_1_link"
     translation: [ 0.0326818, 0.000318198, -0.0481001 ]
@@ -1509,21 +1331,6 @@ links:
       9.14134e-10, -1.81576e-12, 3.47495e-06 ]
     elements:
       - *A28
-  -
-    name: "griphis_4_nailring1-cp3"
-    parent: "griphis_4_roll_1_link"
-    translation: [ -0.000318198, -0.0326818, -0.0482999 ]
-    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
-    joint_name: "griphis_4_nailring1-cp3"
-    joint_type: fixed
-    mass: 0.00888435
-    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
-    inertia: [
-      1.85849e-06, 4.0832e-11, -9.14134e-10,
-      4.0832e-11, 1.88948e-06, 1.81576e-12,
-      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
-    elements:
-      - *A29
   -
     name: "griphis_4_nailring1-cp4"
     parent: "griphis_4_roll_1_link"
@@ -1626,21 +1433,6 @@ links:
       -7.53304e-11, 7.53304e-11, 2.10813e-07 ]
     elements: *A26
   -
-    name: "griphis_0_nailring1-cp1"
-    parent: "griphis_0_roll_1_link"
-    translation: [ -0.000318198, 0.0333182, -0.0481001 ]
-    rotation: [ 0.57735, -0.57735, 0.57735, 120 ]
-    joint_name: "griphis_0_nailring1-cp1"
-    joint_type: fixed
-    mass: 0.00888435
-    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
-    inertia: [
-      1.85849e-06, 4.0832e-11, 9.14134e-10,
-      4.0832e-11, 1.88948e-06, -1.81576e-12,
-      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
-    elements:
-      - *A27
-  -
     name: "griphis_0_nailring1-cp2"
     parent: "griphis_0_roll_1_link"
     translation: [ 0.0326818, 0.000318198, -0.0481001 ]
@@ -1707,8 +1499,7 @@ links:
       -
         type: Transform
         translation: [ -0.028, -0, 0.0175 ]
-        elements:
-          - *A2
+        elements: *A2
   -
     name: "griphis_1_pitch_1_link"
     parent: "griphis_1_yaw_1_link"
@@ -1825,8 +1616,7 @@ links:
       6.16083e-06, -1.48631e-08, -3.66334e-08,
       -1.48631e-08, 7.36783e-06, 1.48635e-08,
       -3.66334e-08, 1.48635e-08, 7.24407e-06 ]
-    elements:
-      - *A8
+    elements: *A8
   -
     name: "griphis_1_roll_2_link"
     parent: "griphis_1_yaw_2_link"
@@ -1942,21 +1732,6 @@ links:
       6.75737e-08, 2.88247e-07, 2.67368e-06 ]
     elements: *A16
   -
-    name: "griphis_1_nailring2-cp1"
-    parent: "griphis_1_roll_2_link"
-    translation: [ -0.0285999, 0, 0.033 ]
-    rotation: [ 1.32557e-07, -1, -6.72257e-15, 180 ]
-    joint_name: "griphis_1_nailring2-cp1"
-    joint_type: fixed
-    mass: 0.00888435
-    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
-    inertia: [
-      1.85849e-06, 4.0832e-11, 9.14134e-10,
-      4.0832e-11, 1.88948e-06, -1.81576e-12,
-      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
-    elements:
-      - *A17
-  -
     name: "griphis_1_nailring2-cp2"
     parent: "griphis_1_roll_2_link"
     translation: [ -0.0285999, -0.033, 0 ]
@@ -1971,21 +1746,6 @@ links:
       9.14134e-10, -1.81576e-12, 3.47495e-06 ]
     elements:
       - *A18
-  -
-    name: "griphis_1_nailring2-cp3"
-    parent: "griphis_1_roll_2_link"
-    translation: [ -0.0284001, 0, -0.033 ]
-    rotation: [ 0, 0, 1, 180 ]
-    joint_name: "griphis_1_nailring2-cp3"
-    joint_type: fixed
-    mass: 0.00888435
-    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
-    inertia: [
-      1.85849e-06, 4.0832e-11, -9.14134e-10,
-      4.0832e-11, 1.88948e-06, 1.81576e-12,
-      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
-    elements:
-      - *A19
   -
     name: "griphis_1_nailring2-cp4"
     parent: "griphis_1_roll_2_link"
@@ -2080,21 +1840,6 @@ links:
       -7.53304e-11, 7.53304e-11, 2.10813e-07 ]
     elements: *A26
   -
-    name: "griphis_1_nailring1-cp1"
-    parent: "griphis_1_roll_1_link"
-    translation: [ -0.000318198, 0.0333182, -0.0481001 ]
-    rotation: [ 0.57735, -0.57735, 0.57735, 120 ]
-    joint_name: "griphis_1_nailring1-cp1"
-    joint_type: fixed
-    mass: 0.00888435
-    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
-    inertia: [
-      1.85849e-06, 4.0832e-11, 9.14134e-10,
-      4.0832e-11, 1.88948e-06, -1.81576e-12,
-      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
-    elements:
-      - *A27
-  -
     name: "griphis_1_nailring1-cp2"
     parent: "griphis_1_roll_1_link"
     translation: [ 0.0326818, 0.000318198, -0.0481001 ]
@@ -2110,21 +1855,6 @@ links:
     elements:
       - *A28
   -
-    name: "griphis_1_nailring1-cp3"
-    parent: "griphis_1_roll_1_link"
-    translation: [ -0.000318198, -0.0326818, -0.0482999 ]
-    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
-    joint_name: "griphis_1_nailring1-cp3"
-    joint_type: fixed
-    mass: 0.00888435
-    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
-    inertia: [
-      1.85849e-06, 4.0832e-11, -9.14134e-10,
-      4.0832e-11, 1.88948e-06, 1.81576e-12,
-      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
-    elements:
-      - *A29
-  -
     name: "griphis_1_nailring1-cp4"
     parent: "griphis_1_roll_1_link"
     translation: [ -0.0333182, 0.000318198, -0.0480999 ]
@@ -2139,21 +1869,6 @@ links:
       -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
     elements:
       - *A30
-  -
-    name: "griphis_0_nailring1-cp3"
-    parent: "griphis_0_roll_1_link"
-    translation: [ -0.000318198, -0.0326818, -0.0482999 ]
-    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
-    joint_name: "griphis_0_nailring1-cp3"
-    joint_type: fixed
-    mass: 0.00888435
-    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
-    inertia: [
-      1.85849e-06, 4.0832e-11, -9.14134e-10,
-      4.0832e-11, 1.88948e-06, 1.81576e-12,
-      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
-    elements:
-      - *A29
   -
     name: "griphis_0_nailring1-cp4"
     parent: "griphis_0_roll_1_link"
@@ -2222,8 +1937,7 @@ links:
       -
         type: Transform
         translation: [ -0.028, -0, 0.0175 ]
-        elements:
-          - *A2
+        elements: *A2
   -
     name: "griphis_2_pitch_1_link"
     parent: "griphis_2_yaw_1_link"
@@ -2340,8 +2054,7 @@ links:
       6.16083e-06, -1.48631e-08, -3.66334e-08,
       -1.48631e-08, 7.36783e-06, 1.48635e-08,
       -3.66334e-08, 1.48635e-08, 7.24407e-06 ]
-    elements:
-      - *A8
+    elements: *A8
   -
     name: "griphis_2_roll_2_link"
     parent: "griphis_2_yaw_2_link"
@@ -2457,21 +2170,6 @@ links:
       6.75737e-08, 2.88247e-07, 2.67368e-06 ]
     elements: *A16
   -
-    name: "griphis_2_nailring2-cp1"
-    parent: "griphis_2_roll_2_link"
-    translation: [ -0.0285999, 0, 0.033 ]
-    rotation: [ 1.32557e-07, -1, -6.72257e-15, 180 ]
-    joint_name: "griphis_2_nailring2-cp1"
-    joint_type: fixed
-    mass: 0.00888435
-    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
-    inertia: [
-      1.85849e-06, 4.0832e-11, 9.14134e-10,
-      4.0832e-11, 1.88948e-06, -1.81576e-12,
-      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
-    elements:
-      - *A17
-  -
     name: "griphis_2_nailring2-cp2"
     parent: "griphis_2_roll_2_link"
     translation: [ -0.0285999, -0.033, 0 ]
@@ -2486,21 +2184,6 @@ links:
       9.14134e-10, -1.81576e-12, 3.47495e-06 ]
     elements:
       - *A18
-  -
-    name: "griphis_2_nailring2-cp3"
-    parent: "griphis_2_roll_2_link"
-    translation: [ -0.0284001, 0, -0.033 ]
-    rotation: [ 0, 0, 1, 180 ]
-    joint_name: "griphis_2_nailring2-cp3"
-    joint_type: fixed
-    mass: 0.00888435
-    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
-    inertia: [
-      1.85849e-06, 4.0832e-11, -9.14134e-10,
-      4.0832e-11, 1.88948e-06, 1.81576e-12,
-      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
-    elements:
-      - *A19
   -
     name: "griphis_2_nailring2-cp4"
     parent: "griphis_2_roll_2_link"
@@ -2595,21 +2278,6 @@ links:
       -7.53304e-11, 7.53304e-11, 2.10813e-07 ]
     elements: *A26
   -
-    name: "griphis_2_nailring1-cp1"
-    parent: "griphis_2_roll_1_link"
-    translation: [ -0.000318198, 0.0333182, -0.0481001 ]
-    rotation: [ 0.57735, -0.57735, 0.57735, 120 ]
-    joint_name: "griphis_2_nailring1-cp1"
-    joint_type: fixed
-    mass: 0.00888435
-    center_of_mass: [ 0.00049521, -2.15213e-07, -0.00500226 ]
-    inertia: [
-      1.85849e-06, 4.0832e-11, 9.14134e-10,
-      4.0832e-11, 1.88948e-06, -1.81576e-12,
-      9.14134e-10, -1.81576e-12, 3.47495e-06 ]
-    elements:
-      - *A27
-  -
     name: "griphis_2_nailring1-cp2"
     parent: "griphis_2_roll_1_link"
     translation: [ 0.0326818, 0.000318198, -0.0481001 ]
@@ -2624,21 +2292,6 @@ links:
       9.14134e-10, -1.81576e-12, 3.47495e-06 ]
     elements:
       - *A28
-  -
-    name: "griphis_2_nailring1-cp3"
-    parent: "griphis_2_roll_1_link"
-    translation: [ -0.000318198, -0.0326818, -0.0482999 ]
-    rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
-    joint_name: "griphis_2_nailring1-cp3"
-    joint_type: fixed
-    mass: 0.00888435
-    center_of_mass: [ -0.00049521, 2.15213e-07, -0.00500226 ]
-    inertia: [
-      1.85849e-06, 4.0832e-11, -9.14134e-10,
-      4.0832e-11, 1.88948e-06, 1.81576e-12,
-      -9.14134e-10, 1.81576e-12, 3.47495e-06 ]
-    elements:
-      - *A29
   -
     name: "griphis_2_nailring1-cp4"
     parent: "griphis_2_roll_1_link"

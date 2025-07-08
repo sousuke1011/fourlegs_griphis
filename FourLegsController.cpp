@@ -1,7 +1,7 @@
 #include <cnoid/SimpleController>
 #include <cnoid/Joystick>
 using namespace cnoid;
-class TurretController1 : public SimpleController
+class FourLegsController : public SimpleController
 
 {
   Link* joint;

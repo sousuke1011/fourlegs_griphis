@@ -21,7 +21,7 @@ items:
           plugin: Body
           class: AISTSimulatorItem
           data:
-            time_step: 0.005
+            time_step: 0.001
             realtime_sync_mode: compensatory
             recording: full
             time_range_mode: unlimited
