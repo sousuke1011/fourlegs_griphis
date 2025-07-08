@@ -20,9 +20,8 @@ items:
           name: "AISTSimulator"
           plugin: Body
           class: AISTSimulatorItem
-          is_selected: true
           data:
-            time_step: 0.001
+            time_step: 0.005
             realtime_sync_mode: compensatory
             recording: full
             time_range_mode: unlimited
@@ -34,7 +33,6 @@ items:
             record_collision_data: false
             controller_options: ""
             block_scene_view_edit_mode: false
-            time_sync_items: [ 4, 6 ]
             dynamicsMode: "Forward dynamics"
             integrationMode: semi-implicit_euler
             gravity: [ 0, 0, -9.80665 ]
@@ -63,7 +61,7 @@ items:
               1, 0, 0,
               0, 1, 0,
               0, 0, 1 ]
-            jointDisplacements: [ 5.02381e-17, 0, 9.9591e-17, 0, 1.17063e-17 ]
+            jointDisplacements: [ 3.12974e-14, 0, 1.28433e-14, 0, -3.30097e-14 ]
             initialJointDisplacements: [ 0, 0, 0, 0, 0 ]
             initialRootPosition: [ 0, 0, 0 ]
             initialRootAttitude: [
@@ -77,40 +75,29 @@ items:
             scene_sensitive: true
             zmp: [ 0, 0, 0 ]
         -
-          id: 5
+          id: 4
           name: "fourlegs_griphis"
           plugin: Body
           class: BodyItem
-          is_selected: true
           is_checked: true
           data:
             file: "fourlegs_griphis.body"
             format: CHOREONOID-BODY
-            rootPosition: [ 3.09078925e-06, 3.73992905e-06, -0.00370215794 ]
+            rootPosition: [ 0, 0, 0 ]
             rootAttitude: [
-              1, -3.37098958e-06, 2.15989723e-06,
-              3.37099024e-06, 1, -3.03792363e-07,
-              -2.15989621e-06, 3.03799644e-07, 1 ]
+              1, 0, 0,
+              0, 1, 0,
+              0, 0, 1 ]
             jointDisplacements: [
-              -0.33636, 0.316898, 0.000405621, -0.244584, 0.310205, -0.00507608, -0.015221, 0.00284636, 0.0587748, -0.417995,
-              -0.521652, -0.000545839, -0.244386, -0.456991, 0.165567, 0.295329, 0.352352, 0.637069, -0.1965, 90.3058,
-              -0.133721, -0.0602521, 0.292775, -0.00978642, -0.0138453, 0.0132897, 0.053597, -0.764843, -0.849752, 0.328273,
-              -0.138999, -0.55232, 2.19601, 1.70345, 3.49726, 6.78804, -0.135831, 90.1173, -0.0439718, -0.0114358,
-              0.272936, -0.0085359, -0.0160707, 0.00152947, 0.0575913, -0.190356, -0.264664, 0.00989886, -0.043713, -0.158324,
-              0.291463, 0.290766, 0.384308, 0.183286, -0.0119808, 90.0241, -0.0124071, 0.0815389, 0.315857, -0.00845192,
-              -0.0168625, 0.00310422, 0.0595496, -0.0917854, -0.127353, 0.0129772, -0.0139085, -0.814685, 0.433602, 1.23458,
-              1.33961, 1.44943, -0.037923, 90.0464, -0.0253015, -0.0904951, 0.282024, -0.00803421, -0.0167429, 0.0107056,
-              0.0532927, -0.101207, -0.119893, 0.0294846, -0.0253747, -0.532968, 0.35855, 0.392767, 0.547131, 0.837293 ]
-            initialJointDisplacements: [
+              0, 0, 0, 0, 0, 90, 90, 90, 90, 0,
+              0, 0, 0, 0, 90, 90, 90, 90, 0, 90,
               0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-              0, 0, 0, 0, 0, 0, 0, 0, 0, 90,
+              0, 0, 90, 90, 90, 90, 0, 90, 0, 0,
               0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-              0, 0, 0, 0, 0, 0, 0, 90, 0, 0,
-              0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-              0, 0, 0, 0, 0, 90, 0, 0, 0, 0,
-              0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-              0, 0, 0, 90, 0, 0, 0, 0, 0, 0,
-              0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+              90, 90, 90, 90, 0, 90, 0, 0, 0, 0,
+              0, 0, 0, 0, 0, 0, 0, 0, 90, 90,
+              90, 90, 0, 90, 0, 0, 0, 0, 0, 0,
+              0, 0, 0, 0, 0, 0, 90, 90, 90, 90 ]
             initialRootPosition: [ 0, 0, 0 ]
             initialRootAttitude: [
               1, 0, 0,
@@ -122,7 +109,7 @@ items:
             lock_location: false
             scene_sensitive: true
             link_kinematics:
-              "griphis_0_worm_2_link":
+              "griphis_0_nail1_2_link":
                 base_frame: 0
                 offset_frame: 0
             zmp: [ 0, 0, 0 ]
@@ -138,7 +125,7 @@ views:
     class: ItemTreeView
     mounted: true
     state:
-      expanded: [ 1, 3, 5 ]
+      expanded: [ 1, 3, 4 ]
   -
     id: 2
     plugin: Base
@@ -170,9 +157,9 @@ views:
         -
           camera: [ System, Perspective ]
           isCurrent: true
-          eye: [ 1.16326, -0.816784, 1.17824 ]
-          direction: [ -0.488446, 0.692287, -0.531186 ]
-          up: [ -0.306231, 0.434029, 0.847255 ]
+          eye: [ -1.22028, -0.296973, 1.8537 ]
+          direction: [ 0.480377, 0.297996, -0.824886 ]
+          up: [ 0.700966, 0.434836, 0.565299 ]
         -
           camera: [ System, Orthographic ]
           orthoHeight: 20
@@ -253,7 +240,7 @@ views:
     mounted: true
 toolbars:
   "TimeBar":
-    current_time: 0.027
+    current_time: 3.594
     min_time: 0
     max_time: 30
     frame_rate: 1000
@@ -276,7 +263,7 @@ toolbars:
     lazyCollisionDetectionMode: true
 Body:
   "BodySelectionManager":
-    current_body_item: 5
+    current_body_item: 4
     current_link: "base_link"
   "KinematicFaultChecker":
     checkJointPositions: true
@@ -295,7 +282,7 @@ Body:
         show_cm_projection: false
         show_zmp: false
       -
-        body_item: 5
+        body_item: 4
         show_cm: false
         show_cm_projection: false
         show_zmp: false
@@ -371,8 +358,8 @@ layoutOfToolBars:
       - { name: "TimeBar", x: 0, priority: 0 }
     -
       - { name: "BodyBar", x: 0, priority: 0 }
-      - { name: "KinematicsBar", x: 0, priority: 1 }
-      - { name: "SceneBar", x: 0, priority: 2 }
-      - { name: "GraphBar", x: 0, priority: 3 }
-      - { name: "CaptureBar", x: 0, priority: 4 }
-      - { name: "DisplayValueFormatBar", x: 0, priority: 5 }
+      - { name: "SceneBar", x: 0, priority: 1 }
+      - { name: "GraphBar", x: 0, priority: 2 }
+      - { name: "CaptureBar", x: 0, priority: 3 }
+      - { name: "DisplayValueFormatBar", x: 0, priority: 4 }
+      - { name: "KinematicsBar", x: 1301, priority: 5 }
