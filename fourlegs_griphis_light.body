@@ -51,7 +51,7 @@ links:
         elements:
           - &A1
             type: Shape
-            translation: [0.024, 0.0, 0.0]           
+            translation: [0.024, 0.0, 0.0]            
             geometry:
               type: Box
               size: [0.04, 0.056, 0.056]
@@ -61,7 +61,7 @@ links:
     translation: [ -0.000318198, 0.000318198, -0.0767 ]
     rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
     joint_name: "griphis_0_roll_1"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 1, -0, -0 ]
     joint_id: 3
     max_joint_velocity: 572.958
@@ -120,7 +120,7 @@ links:
     parent: "griphis_0_pitch_1_link"
     translation: [ -0.042, 0.0175, -0.0175 ]
     joint_name: "griphis_0_pitch_1"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ -0, -1, -0 ]
     joint_id: 1
     max_joint_velocity: 572.958
@@ -145,7 +145,7 @@ links:
     parent: "griphis_0_mid_pitch_1_link"
     translation: [ -0.064, -0.0351, -0 ]
     joint_name: "griphis_0_mid_pitch_1"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ -0, -1, -0 ]
     joint_id: 0
     max_joint_velocity: 572.958
@@ -174,7 +174,7 @@ links:
     parent: "griphis_0_base_link"
     translation: [ -0.0299, 0.0352, 0.00021 ]
     joint_name: "griphis_0_mid_pitch_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, -1, 0 ]
     joint_id: 9
     max_joint_velocity: 572.958
@@ -195,7 +195,7 @@ links:
     parent: "griphis_0_mid_pitch_2_link"
     translation: [ -0.064, -0.0351, 0 ]
     joint_name: "griphis_0_pitch_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, 1, 0 ]
     joint_id: 10
     max_joint_velocity: 572.958
@@ -245,7 +245,7 @@ links:
     parent: "griphis_0_yaw_2_link"
     translation: [ -0.028, 0, -0.0175 ]
     joint_name: "griphis_0_roll_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ -1, 0, 0 ]
     joint_id: 12
     max_joint_velocity: 572.958
@@ -259,7 +259,7 @@ links:
     elements:
       - &A9
         type: Shape
-        translation: [-0.024, 0.0, 0.0]           
+        translation: [-0.024, 0.0, 0.0]            
         geometry:
           type: Box
           size: [0.04, 0.056, 0.056]
@@ -268,8 +268,8 @@ links:
     parent: "griphis_0_roll_2_link"
     translation: [ -0.057, 0, -0.015 ]
     joint_name: "griphis_0_nail1_rotate_2"
-    joint_type: fixed
-    joint_angle: 90            
+    joint_type: revolute
+    joint_angle: 90                
     joint_axis: [ 0, -1, 0 ]
     joint_id: 14
     mass: 0.00785452
@@ -285,17 +285,17 @@ links:
       - type: Collision
         elements:
           -
-            type: Shape
-            translation: [0.04, 0.0, 0.015]
-            geometry: { type: Box, size: [0.001, 0.001, 0.001] }
+              type: Shape
+              translation: [-0.04, 0.0, 0.015]
+              geometry: { type: Box, size: [0.07, 0.01, 0.01] }
   -
     name: "griphis_0_nail2_2_link"
     parent: "griphis_0_roll_2_link"
     translation: [ -0.057, 0.015, 0 ]
     joint_name: "griphis_0_nail2_rotate_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, 0, -1 ]
-    joint_angle: 90           
+    joint_angle: 90            
     joint_id: 15
     mass: 0.00783921
     center_of_mass: [ -0.0375922, 0.000920668, 0.000149875 ]
@@ -310,17 +310,17 @@ links:
       - type: Collision
         elements:
           -
-            type: Shape
-            translation: [0.04, -0.015, 0.0]
-            geometry: { type: Box, size: [0.001, 0.001, 0.001] }      
+              type: Shape
+              translation: [-0.04, -0.015, 0.0]
+              geometry: { type: Box, size: [0.07, 0.01, 0.01] }      
   -
     name: "griphis_0_nail3_2_link"
     parent: "griphis_0_roll_2_link"
     translation: [ -0.057, 0, 0.015 ]
     joint_name: "griphis_0_nail3_rotate_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, 1, 0 ]
-    joint_angle: 90           
+    joint_angle: 90            
     joint_id: 16
     mass: 0.00782164
     center_of_mass: [ -0.0376634, 4.5024e-05, 0.000912382 ]
@@ -335,18 +335,18 @@ links:
       - type: Collision
         elements:
           -
-            type: Shape
-            translation: [0.04, 0.0, -0.015]
-            geometry: { type: Box, size: [0.001, 0.001, 0.001] }
+              type: Shape
+              translation: [-0.04, 0.0, -0.015]
+              geometry: { type: Box, size: [0.07, 0.01, 0.01] }
       
   -
     name: "griphis_0_nail4_2_link"
     parent: "griphis_0_roll_2_link"
     translation: [ -0.057, -0.015, 0 ]
     joint_name: "griphis_0_nail4_rotate_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, 0, 1 ]
-    joint_angle: 90           
+    joint_angle: 90            
     joint_id: 17
     mass: 0.0078313
     center_of_mass: [ -0.0376199, -0.000916238, -0.000157293 ]
@@ -361,10 +361,9 @@ links:
       - type: Collision
         elements:
           -
-            type: Shape
-            translation: [-0.0155, 0.015, 0.0]
-            rotation: [1, 0, 0, 45]
-            geometry: { type: Box, size: [0.01, 0.12, 0.12] }      
+              type: Shape
+              translation: [-0.04, 0.015, 0.0]
+              geometry: { type: Box, size: [0.07, 0.01, 0.01] }      
       
   -
     name: "griphis_0_nail-cp2"
@@ -463,7 +462,7 @@ links:
     translation: [ -0.000318198, 0.000318198, -0.0767 ]
     rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
     joint_name: "griphis_3_roll_1"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 1, -0, -0 ]
     joint_id: 57
     max_joint_velocity: 572.958
@@ -506,9 +505,9 @@ links:
     parent: "griphis_3_pitch_1_link"
     translation: [ -0.042, 0.0175, -0.0175 ]
     joint_name: "griphis_3_pitch_1"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ -0, -1, -0 ]
-    joint_angle: 90   
+    joint_angle: 90    
     joint_id: 55
     max_joint_velocity: 572.958
     max_joint_effort: 3
@@ -528,7 +527,7 @@ links:
     parent: "griphis_3_mid_pitch_1_link"
     translation: [ -0.064, -0.0351, -0 ]
     joint_name: "griphis_3_mid_pitch_1"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ -0, -1, -0 ]
     joint_id: 54
     max_joint_velocity: 572.958
@@ -549,7 +548,7 @@ links:
     parent: "griphis_3_base_link"
     translation: [ -0.0299, 0.0352, 0.00021 ]
     joint_name: "griphis_3_mid_pitch_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, -1, 0 ]
     joint_id: 63
     max_joint_velocity: 572.958
@@ -568,7 +567,6 @@ links:
     joint_name: "griphis_3_pitch_2"
     joint_type: revolute
     joint_axis: [ 0, 1, 0 ]
-    joint_angle: -90
     joint_id: 64
     max_joint_velocity: 572.958
     max_joint_effort: 3
@@ -602,7 +600,7 @@ links:
     parent: "griphis_3_yaw_2_link"
     translation: [ -0.028, 0, -0.0175 ]
     joint_name: "griphis_3_roll_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ -1, 0, 0 ]
     joint_id: 66
     max_joint_velocity: 572.958
@@ -620,9 +618,9 @@ links:
     parent: "griphis_3_roll_2_link"
     translation: [ -0.057, 0, -0.015 ]
     joint_name: "griphis_3_nail1_rotate_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, -1, 0 ]
-    joint_angle: 90           
+    joint_angle: 90            
     joint_id: 68
     mass: 0.00785452
     center_of_mass: [ -0.0375116, 0.000154762, -0.000927613 ]
@@ -636,9 +634,9 @@ links:
     parent: "griphis_3_roll_2_link"
     translation: [ -0.057, 0.015, 0 ]
     joint_name: "griphis_3_nail2_rotate_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, 0, -1 ]
-    joint_angle: 90           
+    joint_angle: 90            
     joint_id: 69
     mass: 0.00783921
     center_of_mass: [ -0.0375922, 0.000920668, 0.000149875 ]
@@ -652,9 +650,9 @@ links:
     parent: "griphis_3_roll_2_link"
     translation: [ -0.057, 0, 0.015 ]
     joint_name: "griphis_3_nail3_rotate_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, 1, 0 ]
-    joint_angle: 90           
+    joint_angle: 90            
     joint_id: 70
     mass: 0.00782164
     center_of_mass: [ -0.0376634, 4.5024e-05, 0.000912382 ]
@@ -668,9 +666,9 @@ links:
     parent: "griphis_3_roll_2_link"
     translation: [ -0.057, -0.015, 0 ]
     joint_name: "griphis_3_nail4_rotate_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, 0, 1 ]
-    joint_angle: 90           
+    joint_angle: 90            
     joint_id: 71
     mass: 0.0078313
     center_of_mass: [ -0.0376199, -0.000916238, -0.000157293 ]
@@ -955,7 +953,7 @@ links:
     translation: [ -0.000318198, 0.000318198, -0.0767 ]
     rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
     joint_name: "griphis_4_roll_1"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 1, -0, -0 ]
     joint_id: 75
     max_joint_velocity: 572.958
@@ -998,9 +996,9 @@ links:
     parent: "griphis_4_pitch_1_link"
     translation: [ -0.042, 0.0175, -0.0175 ]
     joint_name: "griphis_4_pitch_1"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ -0, -1, -0 ]
-    joint_angle: 90   
+    joint_angle: 90    
     joint_id: 73
     max_joint_velocity: 572.958
     max_joint_effort: 3
@@ -1020,7 +1018,7 @@ links:
     parent: "griphis_4_mid_pitch_1_link"
     translation: [ -0.064, -0.0351, -0 ]
     joint_name: "griphis_4_mid_pitch_1"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ -0, -1, -0 ]
     joint_id: 72
     max_joint_velocity: 572.958
@@ -1041,7 +1039,7 @@ links:
     parent: "griphis_4_base_link"
     translation: [ -0.0299, 0.0352, 0.00021 ]
     joint_name: "griphis_4_mid_pitch_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, -1, 0 ]
     joint_id: 81
     max_joint_velocity: 572.958
@@ -1059,7 +1057,6 @@ links:
     translation: [ -0.064, -0.0351, 0 ]
     joint_name: "griphis_4_pitch_2"
     joint_type: revolute
-    joint_angle: -90
     joint_axis: [ 0, 1, 0 ]
     joint_id: 82
     max_joint_velocity: 572.958
@@ -1094,7 +1091,7 @@ links:
     parent: "griphis_4_yaw_2_link"
     translation: [ -0.028, 0, -0.0175 ]
     joint_name: "griphis_4_roll_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ -1, 0, 0 ]
     joint_id: 84
     max_joint_velocity: 572.958
@@ -1112,9 +1109,9 @@ links:
     parent: "griphis_4_roll_2_link"
     translation: [ -0.057, 0, -0.015 ]
     joint_name: "griphis_4_nail1_rotate_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, -1, 0 ]
-    joint_angle: 90           
+    joint_angle: 90            
     joint_id: 86
     mass: 0.00785452
     center_of_mass: [ -0.0375116, 0.000154762, -0.000927613 ]
@@ -1128,9 +1125,9 @@ links:
     parent: "griphis_4_roll_2_link"
     translation: [ -0.057, 0.015, 0 ]
     joint_name: "griphis_4_nail2_rotate_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, 0, -1 ]
-    joint_angle: 90           
+    joint_angle: 90            
     joint_id: 87
     mass: 0.00783921
     center_of_mass: [ -0.0375922, 0.000920668, 0.000149875 ]
@@ -1144,9 +1141,9 @@ links:
     parent: "griphis_4_roll_2_link"
     translation: [ -0.057, 0, 0.015 ]
     joint_name: "griphis_4_nail3_rotate_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, 1, 0 ]
-    joint_angle: 90           
+    joint_angle: 90            
     joint_id: 88
     mass: 0.00782164
     center_of_mass: [ -0.0376634, 4.5024e-05, 0.000912382 ]
@@ -1160,9 +1157,9 @@ links:
     parent: "griphis_4_roll_2_link"
     translation: [ -0.057, -0.015, 0 ]
     joint_name: "griphis_4_nail4_rotate_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, 0, 1 ]
-    joint_angle: 90           
+    joint_angle: 90            
     joint_id: 89
     mass: 0.0078313
     center_of_mass: [ -0.0376199, -0.000916238, -0.000157293 ]
@@ -1343,7 +1340,7 @@ links:
     translation: [ -0.000318198, -0.0146818, -0.0197 ]
     rotation: [ 0.57735, -0.57735, 0.57735, 120 ]
     joint_name: "griphis_0_nail1_rotate_1"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, -1, 0 ]
     joint_angle: 90
     joint_id: 5
@@ -1360,7 +1357,7 @@ links:
     translation: [ -0.0153182, 0.000318198, -0.0197 ]
     rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
     joint_name: "griphis_0_nail2_rotate_1"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, 0, -1 ]
     joint_angle: 90
     joint_id: 6
@@ -1377,8 +1374,8 @@ links:
     translation: [ -0.000318198, 0.0153182, -0.0197 ]
     rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
     joint_name: "griphis_0_nail3_rotate_1"
-    joint_angle: 90   
-    joint_type: fixed
+    joint_angle: 90    
+    joint_type: revolute
     joint_axis: [ 0, -1, 0 ]
     joint_id: 7
     mass: 0.00782164
@@ -1394,8 +1391,8 @@ links:
     translation: [ 0.0146818, 0.000318198, -0.0197 ]
     rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
     joint_name: "griphis_0_nail4_rotate_1"
-    joint_type: fixed
-    joint_angle: 90           
+    joint_type: revolute
+    joint_angle: 90            
     joint_axis: [ 0, 0, 1 ]
     joint_id: 8
     mass: 0.0078313
@@ -1471,7 +1468,7 @@ links:
     translation: [ -0.000318198, 0.000318198, -0.0767 ]
     rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
     joint_name: "griphis_1_roll_1"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 1, -0, -0 ]
     joint_id: 21
     max_joint_velocity: 572.958
@@ -1514,7 +1511,7 @@ links:
     parent: "griphis_1_pitch_1_link"
     translation: [ -0.042, 0.0175, -0.0175 ]
     joint_name: "griphis_1_pitch_1"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ -0, -1, -0 ]
     joint_angle: 90
     joint_id: 19
@@ -1536,7 +1533,7 @@ links:
     parent: "griphis_1_mid_pitch_1_link"
     translation: [ -0.064, -0.0351, -0 ]
     joint_name: "griphis_1_mid_pitch_1"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ -0, -1, -0 ]
     joint_id: 18
     max_joint_velocity: 572.958
@@ -1557,7 +1554,7 @@ links:
     parent: "griphis_1_base_link"
     translation: [ -0.0299, 0.0352, 0.00021 ]
     joint_name: "griphis_1_mid_pitch_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, -1, 0 ]
     joint_id: 27
     max_joint_velocity: 572.958
@@ -1575,7 +1572,6 @@ links:
     translation: [ -0.064, -0.0351, 0 ]
     joint_name: "griphis_1_pitch_2"
     joint_type: revolute
-    joint_angle: -90
     joint_axis: [ 0, 1, 0 ]
     joint_id: 28
     max_joint_velocity: 572.958
@@ -1610,7 +1606,7 @@ links:
     parent: "griphis_1_yaw_2_link"
     translation: [ -0.028, 0, -0.0175 ]
     joint_name: "griphis_1_roll_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ -1, 0, 0 ]
     joint_id: 30
     max_joint_velocity: 572.958
@@ -1628,9 +1624,9 @@ links:
     parent: "griphis_1_roll_2_link"
     translation: [ -0.057, 0, -0.015 ]
     joint_name: "griphis_1_nail1_rotate_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, -1, 0 ]
-    joint_angle: 90           
+    joint_angle: 90            
     joint_id: 32
     mass: 0.00785452
     center_of_mass: [ -0.0375116, 0.000154762, -0.000927613 ]
@@ -1644,9 +1640,9 @@ links:
     parent: "griphis_1_roll_2_link"
     translation: [ -0.057, 0.015, 0 ]
     joint_name: "griphis_1_nail2_rotate_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, 0, -1 ]
-    joint_angle: 90           
+    joint_angle: 90            
     joint_id: 33
     mass: 0.00783921
     center_of_mass: [ -0.0375922, 0.000920668, 0.000149875 ]
@@ -1660,9 +1656,9 @@ links:
     parent: "griphis_1_roll_2_link"
     translation: [ -0.057, 0, 0.015 ]
     joint_name: "griphis_1_nail3_rotate_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, 1, 0 ]
-    joint_angle: 90           
+    joint_angle: 90            
     joint_id: 34
     mass: 0.00782164
     center_of_mass: [ -0.0376634, 4.5024e-05, 0.000912382 ]
@@ -1676,9 +1672,9 @@ links:
     parent: "griphis_1_roll_2_link"
     translation: [ -0.057, -0.015, 0 ]
     joint_name: "griphis_1_nail4_rotate_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, 0, 1 ]
-    joint_angle: 90           
+    joint_angle: 90            
     joint_id: 35
     mass: 0.0078313
     center_of_mass: [ -0.0376199, -0.000916238, -0.000157293 ]
@@ -1906,7 +1902,7 @@ links:
     translation: [ -0.000318198, 0.000318198, -0.0767 ]
     rotation: [ -0.57735, -0.57735, -0.57735, 120 ]
     joint_name: "griphis_2_roll_1"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 1, -0, -0 ]
     joint_id: 39
     max_joint_velocity: 572.958
@@ -1949,7 +1945,7 @@ links:
     parent: "griphis_2_pitch_1_link"
     translation: [ -0.042, 0.0175, -0.0175 ]
     joint_name: "griphis_2_pitch_1"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ -0, -1, -0 ]
     joint_angle: 90
     joint_id: 37
@@ -1971,7 +1967,7 @@ links:
     parent: "griphis_2_mid_pitch_1_link"
     translation: [ -0.064, -0.0351, -0 ]
     joint_name: "griphis_2_mid_pitch_1"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ -0, -1, -0 ]
     joint_id: 36
     max_joint_velocity: 572.958
@@ -1992,7 +1988,7 @@ links:
     parent: "griphis_2_base_link"
     translation: [ -0.0299, 0.0352, 0.00021 ]
     joint_name: "griphis_2_mid_pitch_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, -1, 0 ]
     joint_id: 45
     max_joint_velocity: 572.958
@@ -2010,7 +2006,6 @@ links:
     translation: [ -0.064, -0.0351, 0 ]
     joint_name: "griphis_2_pitch_2"
     joint_type: revolute
-    joint_angle: -90
     joint_axis: [ 0, 1, 0 ]
     joint_id: 46
     max_joint_velocity: 572.958
@@ -2045,7 +2040,7 @@ links:
     parent: "griphis_2_yaw_2_link"
     translation: [ -0.028, 0, -0.0175 ]
     joint_name: "griphis_2_roll_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ -1, 0, 0 ]
     joint_id: 48
     max_joint_velocity: 572.958
@@ -2063,9 +2058,9 @@ links:
     parent: "griphis_2_roll_2_link"
     translation: [ -0.057, 0, -0.015 ]
     joint_name: "griphis_2_nail1_rotate_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, -1, 0 ]
-    joint_angle: 90           
+    joint_angle: 90            
     joint_id: 50
     mass: 0.00785452
     center_of_mass: [ -0.0375116, 0.000154762, -0.000927613 ]
@@ -2079,9 +2074,9 @@ links:
     parent: "griphis_2_roll_2_link"
     translation: [ -0.057, 0.015, 0 ]
     joint_name: "griphis_2_nail2_rotate_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, 0, -1 ]
-    joint_angle: 90           
+    joint_angle: 90            
     joint_id: 51
     mass: 0.00783921
     center_of_mass: [ -0.0375922, 0.000920668, 0.000149875 ]
@@ -2095,9 +2090,9 @@ links:
     parent: "griphis_2_roll_2_link"
     translation: [ -0.057, 0, 0.015 ]
     joint_name: "griphis_2_nail3_rotate_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, 1, 0 ]
-    joint_angle: 90           
+    joint_angle: 90            
     joint_id: 52
     mass: 0.00782164
     center_of_mass: [ -0.0376634, 4.5024e-05, 0.000912382 ]
@@ -2111,9 +2106,9 @@ links:
     parent: "griphis_2_roll_2_link"
     translation: [ -0.057, -0.015, 0 ]
     joint_name: "griphis_2_nail4_rotate_2"
-    joint_type: fixed
+    joint_type: revolute
     joint_axis: [ 0, 0, 1 ]
-    joint_angle: 90           
+    joint_angle: 90            
     joint_id: 53
     mass: 0.0078313
     center_of_mass: [ -0.0376199, -0.000916238, -0.000157293 ]

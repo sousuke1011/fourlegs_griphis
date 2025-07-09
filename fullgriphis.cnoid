@@ -10,6 +10,7 @@ items:
       name: "World"
       plugin: Body
       class: WorldItem
+      is_selected: true
       data:
         collision_detection: false
         collision_detector: AISTCollisionDetector
@@ -20,7 +21,6 @@ items:
           name: "AISTSimulator"
           plugin: Body
           class: AISTSimulatorItem
-          is_selected: true
           data:
             time_step: 0.001
             realtime_sync_mode: compensatory
@@ -34,7 +34,6 @@ items:
             record_collision_data: false
             controller_options: ""
             block_scene_view_edit_mode: false
-            time_sync_items: [ 4, 7 ]
             dynamicsMode: "Forward dynamics"
             integrationMode: semi-implicit_euler
             gravity: [ 0, 0, -9.80665 ]
@@ -77,58 +76,40 @@ items:
             scene_sensitive: true
             zmp: [ 0, 0, 0 ]
         -
-          id: 5
+          id: 4
           name: "fourlegs_griphis"
           plugin: Body
           class: BodyItem
-          is_selected: true
           is_checked: true
           data:
-            file: "fourlegs_griphis.body"
+            file: "fourlegs_griphis_full.body"
             format: CHOREONOID-BODY
-            rootPosition: [ 0, 0.8, 0 ]
+            rootPosition: [ 0, 0, 0 ]
             rootAttitude: [
-              6.123234e-17, 1, -0,
-              -1, 6.123234e-17, 0,
+              1, 0, 0,
+              0, 1, 0,
               0, 0, 1 ]
             jointDisplacements: [
               0, 0, 0, 0, 0, 90, 90, 90, 90, 0,
               0, 0, 0, 0, 90, 90, 90, 90, 0, 90,
-              0, 0, 0, 0, 0, 0, 0, 0, -90, 0,
+              0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
               0, 0, 90, 90, 90, 90, 0, 90, 0, 0,
-              0, 0, 0, 0, 0, 0, -90, 0, 0, 0,
+              0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
               90, 90, 90, 90, 0, 90, 0, 0, 0, 0,
-              0, 0, 0, 0, -90, 0, 0, 0, 90, 90,
+              0, 0, 0, 0, 0, 0, 0, 0, 90, 90,
               90, 90, 0, 90, 0, 0, 0, 0, 0, 0,
-              0, 0, -90, 0, 0, 0, 90, 90, 90, 90 ]
-            initialRootPosition: [ 0, 0.8, 0 ]
+              0, 0, 0, 0, 0, 0, 90, 90, 90, 90 ]
+            initialRootPosition: [ 0, 0, 0 ]
             initialRootAttitude: [
-              2.22044605e-16, 1, -0,
-              -1, 2.22044605e-16, 0,
+              1, 0, 0,
+              0, 1, 0,
               0, 0, 1 ]
             fix_root: false
             collisionDetection: true
-            selfCollisionDetection: true
+            selfCollisionDetection: false
             lock_location: false
             scene_sensitive: true
-            link_kinematics:
-              "griphis_0_nail1_2_link":
-                base_frame: 0
-                offset_frame: 0
             zmp: [ 0, 0, 0 ]
-          children:
-            -
-              id: 6
-              name: "SimpleController"
-              plugin: Body
-              class: SimpleControllerItem
-              data:
-                isNoDelayMode: false
-                controllerOptions: ""
-                controller: "GriphisWalker"
-                base_directory: "Controller directory"
-                reloading: false
-                export_symbols: false
 views:
   -
     id: 0
@@ -141,7 +122,7 @@ views:
     class: ItemTreeView
     mounted: true
     state:
-      expanded: [ 1, 3, 5, 6 ]
+      expanded: [ 1, 3 ]
   -
     id: 2
     plugin: Base
@@ -242,7 +223,7 @@ views:
     class: LinkPositionView
     mounted: true
     state:
-      coordinate_mode: base
+      coordinate_mode: world
       preferred_coordinate_mode: base
       show_rpy: true
       unique_rpy: false
@@ -284,8 +265,8 @@ toolbars:
     lazyCollisionDetectionMode: true
 Body:
   "BodySelectionManager":
-    current_body_item: 5
-    current_link: "base_link"
+    current_body_item: 3
+    current_link: "Base"
   "KinematicFaultChecker":
     checkJointPositions: true
     angleMargin: 0
@@ -303,7 +284,7 @@ Body:
         show_cm_projection: false
         show_zmp: false
       -
-        body_item: 5
+        body_item: 4
         show_cm: false
         show_cm_projection: false
         show_zmp: false
@@ -319,12 +300,12 @@ viewAreas:
     contents:
       type: splitter
       orientation: horizontal
-      sizes: [ 651, 269 ]
+      sizes: [ 1305, 539 ]
       children:
         -
           type: splitter
           orientation: horizontal
-          sizes: [ 168, 479 ]
+          sizes: [ 338, 963 ]
           children:
             -
               type: splitter
