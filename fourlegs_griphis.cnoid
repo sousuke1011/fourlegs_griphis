@@ -20,7 +20,6 @@ items:
           name: "AISTSimulator"
           plugin: Body
           class: AISTSimulatorItem
-          is_selected: true
           data:
             time_step: 0.001
             realtime_sync_mode: compensatory
@@ -34,7 +33,7 @@ items:
             record_collision_data: false
             controller_options: ""
             block_scene_view_edit_mode: false
-            time_sync_items: [ 4, 7 ]
+            time_sync_items: [ 5, 8 ]
             dynamicsMode: "Forward dynamics"
             integrationMode: semi-implicit_euler
             gravity: [ 0, 0, -9.80665 ]
@@ -49,8 +48,18 @@ items:
             kinematicWalking: false
             2Dmode: false
             oldAccelSensorMode: false
+          children:
+            -
+              id: 3
+              name: "fourlegs_griphis_log"
+              plugin: Body
+              class: WorldLogFileItem
+              is_selected: true
+              data:
+                timeStampSuffix: true
+                recordingFrameRate: 0
         -
-          id: 3
+          id: 4
           name: "HVAC2023_athletics_field"
           plugin: Body
           class: BodyItem
@@ -63,7 +72,7 @@ items:
               1, 0, 0,
               0, 1, 0,
               0, 0, 1 ]
-            jointDisplacements: [ 1.61262e-14, 0, -1.93714e-15, 0, -1.88819e-14 ]
+            jointDisplacements: [ 1.67403e-14, 0, -8.22114e-16, 0, -1.54015e-14 ]
             initialJointDisplacements: [ 0, 0, 0, 0, 0 ]
             initialRootPosition: [ 0, 0, 0 ]
             initialRootAttitude: [
@@ -77,21 +86,30 @@ items:
             scene_sensitive: true
             zmp: [ 0, 0, 0 ]
         -
-          id: 5
+          id: 6
           name: "fourlegs_griphis"
           plugin: Body
           class: BodyItem
-          is_selected: true
           is_checked: true
           data:
             file: "fourlegs_griphis.body"
             format: CHOREONOID-BODY
-            rootPosition: [ 0, 0.8, 0 ]
+            rootPosition: [ 0.233440858, 0.880840567, -0.249283049 ]
             rootAttitude: [
-              6.123234e-17, 1, -0,
-              -1, 6.123234e-17, 0,
-              0, 0, 1 ]
+              -0.808339241, 0.588470358, -0.0170384318,
+              -0.588712606, -0.808106074, 0.0195458627,
+              -0.00226669937, 0.0258304274, 0.999663769 ]
             jointDisplacements: [
+              0, 0, 0.875166, 0, 0, 90, 90, 90, 90, 0,
+              0, -32.8217, 0, 0, 90, 90, 90, 90, 0, 90,
+              -114.067, 0, 0, 0, 0, 0, 0, 0, -88.9521, -0.647377,
+              0, 0, 90, 90, 90, 90, 0, 90, -83.6275, 0,
+              0, 0, 0, 0, 0, 0, -85.6154, 8.04467, 0, 0,
+              90, 90, 90, 90, 0, 90, -113.304, 0, 0, 0,
+              0, 0, 0, 0, -91.1898, -1.71233, 0, 0, 90, 90,
+              90, 90, 0, 90, -111.608, 0, 0, 0, 0, 0,
+              0, 0, -87.2869, 4.0614, 0, 0, 90, 90, 90, 90 ]
+            initialJointDisplacements: [
               0, 0, 0, 0, 0, 90, 90, 90, 90, 0,
               0, 0, 0, 0, 90, 90, 90, 90, 0, 90,
               0, 0, 0, 0, 0, 0, 0, 0, -90, 0,
@@ -118,7 +136,7 @@ items:
             zmp: [ 0, 0, 0 ]
           children:
             -
-              id: 6
+              id: 7
               name: "SimpleController"
               plugin: Body
               class: SimpleControllerItem
@@ -141,7 +159,7 @@ views:
     class: ItemTreeView
     mounted: true
     state:
-      expanded: [ 1, 3, 5, 6 ]
+      expanded: [ 1, 2, 4, 6, 7 ]
   -
     id: 2
     plugin: Base
@@ -261,7 +279,7 @@ views:
     mounted: true
 toolbars:
   "TimeBar":
-    current_time: 12.044
+    current_time: 13.67
     min_time: 0
     max_time: 30
     frame_rate: 1000
@@ -284,7 +302,7 @@ toolbars:
     lazyCollisionDetectionMode: true
 Body:
   "BodySelectionManager":
-    current_body_item: 5
+    current_body_item: 6
     current_link: "base_link"
   "KinematicFaultChecker":
     checkJointPositions: true
@@ -298,12 +316,12 @@ Body:
   "OperableSceneBody":
     scene_bodies:
       -
-        body_item: 3
+        body_item: 4
         show_cm: false
         show_cm_projection: false
         show_zmp: false
       -
-        body_item: 5
+        body_item: 6
         show_cm: false
         show_cm_projection: false
         show_zmp: false
@@ -319,12 +337,12 @@ viewAreas:
     contents:
       type: splitter
       orientation: horizontal
-      sizes: [ 651, 269 ]
+      sizes: [ 1305, 539 ]
       children:
         -
           type: splitter
           orientation: horizontal
-          sizes: [ 168, 479 ]
+          sizes: [ 338, 963 ]
           children:
             -
               type: splitter
